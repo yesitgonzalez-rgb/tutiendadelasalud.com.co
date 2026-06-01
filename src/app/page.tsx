@@ -1,5 +1,8 @@
 import Image from "next/image";
 import VideoHero from "@/components/VideoHero";
+import ProductCard from "@/components/ProductCard";
+import VideoCarousel from "@/components/VideoCarousel";
+import CelionCard from "@/components/CelionCard";
 import {
   Leaf,
   Zap,
@@ -9,33 +12,42 @@ import {
   Shield,
   Star,
   MessageCircle,
-  Play,
   CheckCircle,
   FlaskConical,
+  Users,
+  Baby,
+  Heart,
+  Gift,
+  TrendingUp,
+  Award,
 } from "lucide-react";
 
 // ─── Datos ────────────────────────────────────────────────────────────────────
 
 const categories = [
   {
-    icon: <Leaf size={32} className="text-[#3ED9C4]" />,
-    title: "Suplementos",
-    desc: "Cápsulas y tabletas con ingredientes de origen natural para fortalecer tu cuerpo.",
-  },
-  {
-    icon: <Zap size={32} className="text-[#3ED9C4]" />,
-    title: "Nutrición Celular",
-    desc: "Formulaciones que trabajan desde adentro para una salud profunda y duradera.",
-  },
-  {
     icon: <Coffee size={32} className="text-[#3ED9C4]" />,
-    title: "Bebidas",
-    desc: "Cafés, infusiones y jugos naturales que nutren y revitalizan tu sistema.",
+    title: "Energía Natural",
+    desc: "Vitalidad para tu día a día. Cafés funcionales y bebidas que te activan sin artificiales.",
+    href: "#energia",
+  },
+  {
+    icon: <Leaf size={32} className="text-[#3ED9C4]" />,
+    title: "Bienestar Integral",
+    desc: "Nutrición avanzada para revitalizar tu organismo desde el interior. Salud que se siente.",
+    href: "#bienestar",
   },
   {
     icon: <Sparkles size={32} className="text-[#3ED9C4]" />,
     title: "Cuidado Personal",
-    desc: "Línea de higiene y cuidado externo con extractos 100% naturales.",
+    desc: "Apoya los procesos naturales de limpieza y bienestar. Piel, sonrisa y cuerpo en equilibrio.",
+    href: "#cuidado",
+  },
+  {
+    icon: <Gift size={32} className="text-[#3ED9C4]" />,
+    title: "Combos Wellness",
+    desc: "Rutinas completas diseñadas para un resultado mayor. Los que más se piden, juntos.",
+    href: "#combos",
   },
 ];
 
@@ -44,98 +56,118 @@ const destacados = [
     name: "Lingzhi Black Coffee 2 en 1",
     category: "Bebida · Café",
     desc: "Café negro con extracto de Ganoderma lucidum. 20 sobres de 4.5 g.",
-    img: "/images/cafe-2.png",
-    badge: "Destacado",
+    img: "/images/cafe-lingzhi.png",
+    badge: "Bestseller",
+    price: "115.000",
   },
   {
     name: "Cocozhi",
     category: "Bebida · Cacao",
     desc: "Suplemento dietario a base de Ganoderma lucidum. 20 sobres de 32 g.",
-    img: "/images/cafe-1.png",
-    badge: "Destacado",
+    img: "/images/cafe-cocozhi.png",
+    badge: "Bestseller",
+    price: "114.500",
   },
   {
     name: "Zhi Mocha",
     category: "Bebida · Café",
     desc: "Suplemento dietario a base de Ganoderma lucidum. 20 sobres de 21 g.",
-    img: "/images/cafe-3.png",
-    badge: "Destacado",
+    img: "/images/cafe-zhimocha.png",
+    badge: "Premium",
+    price: "113.500",
   },
   {
     name: "Cream Coffee",
     category: "Bebida · Café",
     desc: "Café cremoso con extracto de Ganoderma. 20 paquetes de 14 g.",
-    img: "/images/cafe-4.png",
+    img: "/images/cafe-creamcoffee.png",
     badge: "Nuevo",
+    price: "112.500",
   },
 ];
 
 const ganoterapia = [
   {
     name: "Reishi Gano (RG)",
-    category: "Ganoterapia · Cápsula",
-    desc: "Suplemento dietario de Ganoderma lucidum. 30 cápsulas de 270 mg.",
-    img: "/images/producto-5.jpeg",
+    category: "🌿 Defensas & Inmunidad",
+    desc: "Fortalece el sistema inmune y elimina el exceso de ácido úrico, colesterol y grasa acumulada. 30 cápsulas.",
+    img: "/images/gano-reishi.png",
+    badge: "Premium",
+    price: "120.000",
   },
   {
     name: "Ganocelium (GL)",
-    category: "Ganoterapia · Cápsula",
-    desc: "Suplemento dietario de micelio de Ganoderma. 30 cápsulas de 450 mg.",
-    img: "/images/producto-4.jpeg",
+    category: "🌿 Resistencia Natural",
+    desc: "Incrementa la resistencia del cuerpo. Fortalece defensas y promueve el equilibrio celular. 30 cápsulas.",
+    img: "/images/gano-ganocelium.png",
+    badge: "Natural",
+    price: "113.500",
   },
   {
     name: "Spirulina",
-    category: "Suplemento · Tableta",
-    desc: "Suplemento dietario de spirulina de alta pureza. 120 tabletas.",
-    img: "/images/producto-12.jpeg",
+    category: "🌿 Nutrición Natural",
+    desc: "Superalimento 100% natural. Proteína vegetal, hierro y vitaminas para nutrir tu cuerpo desde adentro. 120 tabletas.",
+    img: "/images/gano-spirulina.png",
+    badge: "Natural",
+    price: "119.500",
   },
 ];
 
 const bebidasLiquidas = [
   {
     name: "Morinzhi",
-    category: "Bebida · Jugo",
-    desc: "Mezcla concentrada con Noni y Flor de Jamaica. 285 ml.",
-    img: "/images/producto-8.jpeg",
+    category: "💧 Detox Natural",
+    desc: "Bebida botánica con Noni y Flor de Jamaica. Sin químicos añadidos. Depura y fortalece desde adentro. 285 ml.",
+    img: "/images/morinzhi-premium.png",
+    badge: "Bestseller",
+    price: "129.500",
   },
   {
     name: "Morinzyme",
-    category: "Bebida · Jugo",
-    desc: "Mezcla concentrada con Noni. 285 ml.",
-    img: "/images/producto-9.jpeg",
+    category: "🌿 Digestión & Bienestar",
+    desc: "Bebida fermentada de Noni con enzimas naturales. Mejora tu digestión, el metabolismo y la absorción de nutrientes. 285 ml.",
+    img: "/images/bebida-morinzyme.png",
+    badge: "Natural",
+    price: "112.000",
   },
   {
     name: "Apple Juice Drink",
-    category: "Bebida · Jugo",
-    desc: "Bebida con zumo de manzana natural. 50 ml × 15 paquetes.",
-    img: "/images/producto-11.jpeg",
+    category: "🍏 Digestiva & Equilibrio",
+    desc: "Zumo de manzana con enzimas activas. Sin calorías, sin gluten. Apoya la flora intestinal de toda la familia.",
+    img: "/images/bebida-apple-juice.png",
+    badge: "Natural",
+    price: "169.000",
   },
 ];
 
 const cuidadoPersonal = [
   {
-    name: "Gano Massage Oil",
-    category: "Cuidado Personal · Aceite",
-    desc: "Aceite de masaje Ganoderma 100% Natural. 75 ml.",
-    img: "/images/producto-1.jpeg",
+    name: "Ganozhi Gel de Baño",
+    category: "🧴 Limpieza & Equilibrio",
+    desc: "Gel de baño con extracto de Ganoderma. Limpia profundamente, descongestiona y equilibra el pH corporal. 250 ml.",
+    img: "/images/dermocosmetica-ganozhi-gel-bano.png",
+    badge: "Natural",
   },
   {
-    name: "Ganozhi Body Foam",
-    category: "Cuidado Personal · Gel",
-    desc: "Gel de baño con extracto de Ganoderma. 250 ml.",
-    img: "/images/producto-6.jpeg",
+    name: "Ganozhi Shampoo",
+    category: "💆 Cuidado Capilar",
+    desc: "Shampoo con Ganoderma y Vitamina B5. Limpia, nutre desde la raíz hasta las puntas y fortalece con queratina hidrolizada. 250 ml.",
+    img: "/images/dermocosmetica-ganozhi-shampoo.png",
+    badge: "Natural",
   },
   {
-    name: "Ganozhi Lipstick",
-    category: "Cuidado Personal · Labial",
-    desc: "Labial enriquecido con extracto natural. 3.5 g.",
-    img: "/images/producto-7.jpeg",
+    name: "Smilife Shampoo Keratina & Turmalina",
+    category: "💆 Cuidado Capilar Premium",
+    desc: "Shampoo con keratina hidrolizada y turmalina natural. Limpia, purifica y transforma la suavidad de tu cabello. 265 ml.",
+    img: "/images/dermocosmetica-smilife-shampoo-keratina.png",
+    badge: "Premium",
   },
   {
-    name: "Aceite Virgen de Coco",
-    category: "Cuidado Personal · Aceite",
-    desc: "Aceite virgen de coco 100% puro. 285 ml.",
-    img: "/images/producto-10.jpeg",
+    name: "Smilife Gel de Baño Turmalina",
+    category: "🧴 Limpieza & Energía",
+    desc: "Gel de ducha con turmalina natural. Elimina impurezas, hidrata y conecta con tu energía. Piel linda, tersa y fresca. 265 ml.",
+    img: "/images/dermocosmetica-smilife-gel-turmalina.png",
+    badge: "Premium",
   },
 ];
 
@@ -143,43 +175,218 @@ const saludOral = [
   {
     name: "Green World Herbs Fresh Mint",
     category: "Salud Oral · Pasta dental",
-    desc: "Pasta dental natural con hierbas, xilitol y menta fresca. Fórmula suave para uso diario. 120 g.",
-    img: "/images/oral-1.png",
+    desc: "Pasta herbal medicinal con xilitol y menta fresca. 100% natural. 120 g.",
+    img: "/images/oral-herbs-mint.png",
+    price: "38.000",
   },
   {
-    name: "HGW Tourmaline Toothpaste",
+    name: "HGW Turmalina Negra",
     category: "Salud Oral · Pasta dental",
-    desc: "Pasta dental con turmalina para una higiene bucal completa y protección eficaz.",
-    img: "/images/oral-2.png",
+    desc: "Pasta dental de turmalina negra. Remineraliza y fortalece. Sin flúor. 120 g.",
+    img: "/images/oral-tourmaline-black.png",
+    price: "38.000",
   },
   {
-    name: "Smilife Tourmaline Toothpaste",
+    name: "Smilife Turmalina Blanca",
     category: "Salud Oral · Pasta dental",
-    desc: "Pasta dental premium con turmalina. Blanqueamiento natural y aliento fresco duradero.",
-    img: "/images/oral-3.png",
+    desc: "Dientes más blancos desde el primer uso. Con turmalina. Sin parabenos. 120 g.",
+    img: "/images/oral-smilife.png",
+    price: "22.500",
+  },
+  {
+    name: "Ganozhi Toothpaste",
+    category: "Salud Oral · Pasta dental",
+    desc: "Pasta dental con extracto de Ganoderma. Protección natural contra caries. 150 g.",
+    img: "/images/oral-ganozhi.png",
+    badge: "Nuevo",
+    price: "49.500",
+  },
+];
+
+const jabones = [
+  {
+    name: "Jabón Ganozhi",
+    category: "Jabones · Natural",
+    desc: "Jabón con extracto de Ganoderma lucidum. Limpieza profunda y cuidado natural para una piel más saludable.",
+    img: "/images/jabon-ganozhi.png",
+    badge: "Natural",
+    price: "41.000",
+  },
+  {
+    name: "Jabón Turmalina SOAT",
+    category: "Jabones · Mineral",
+    desc: "Jabón de turmalina 100% natural. Antibacteriano, antiinflamatorio. Piel más saludable y protegida.",
+    img: "/images/jabon-turmalina.png",
+    badge: "Premium",
+    price: "24.500",
+  },
+  {
+    name: "Jabón Miel & Oliva",
+    category: "Jabones · Natural",
+    desc: "Con extracto de miel de abejas y aceite de olivas. Piel más hidratada, facial y corporal.",
+    img: "/images/jabon-miel-oliva.png",
+    badge: "Natural",
+    price: "24.500",
+  },
+];
+
+const higieneBucal = [
+  {
+    name: "Pasta Dental Miel de Abejas · 200 g",
+    category: "🦷 Protección Natural",
+    desc: "Elimina caries, sarro y placa bacteriana. Aliento fresco duradero y dientes más blancos. Con propolio + té verde antioxidante + miel de abejas. Fórmula natural Atomy.",
+    img: "/images/oral-pasta-propolio.png",
+    badge: "Natural",
+    price: "32.000",
+  },
+  {
+    name: "Pasta Dental Miel de Abejas · 50 g",
+    category: "🦷 Protección Natural",
+    desc: "La misma fórmula natural en presentación mini. Ideal para viajes o para probarla. Con propolio, té verde y miel de abejas. Atomy.",
+    img: "/images/oral-pasta-propolio.png",
+    badge: "Natural",
+    price: "13.500",
+  },
+  {
+    name: "Cepillo Dental Antibacteriano para Adultos",
+    category: "🦷 Higiene Premium",
+    desc: "Cerdas antibacterianas bañadas en oro. Certificación FDA y KIFA internacional. Limpieza profunda en zonas posteriores. Protege encías y cuida tu sonrisa.",
+    img: "/images/oral-cepillo-adultos.png",
+    badge: "Premium",
+    price: "15.500",
+  },
+  {
+    name: "Kit Viajero Sistema de Cuidado Oral",
+    category: "✈️ Kit Familiar",
+    desc: "4 productos en estuche transparente de lujo: cepillo antibacteriano, mini cepillo interdental, pasta dental Propolio. Ideal para viajes. Para toda la familia.",
+    img: "/images/oral-kit-viajero.png",
+    badge: "Bestseller",
+    price: "38.500",
+  },
+  {
+    name: "Spray Cuidado Bucal Green Propolis",
+    category: "🌿 Frescura Instantánea",
+    desc: "Propólio verde de alta calidad de la selva del Brasil. Frescura instantánea, protección bucal y cuidado natural para toda la familia. Fácil de usar en cualquier lugar.",
+    img: "/images/oral-spray-propolio.png",
+    badge: "Natural",
+    price: "145.000",
+  },
+];
+
+const bloqueadores = [
+  {
+    name: "Atomy Sun Stick FPS 50+",
+    category: "☀️ Protección Solar",
+    desc: "Protección solar en barra. FPS 50+ PA++++. Ligero, sin residuo graso. Para todo tipo de piel.",
+    img: "/images/bloqueador-sun-stick.png",
+    badge: "Premium",
+    price: "74.500",
+  },
+  {
+    name: "Atomy Essence Sun SPF 50+",
+    category: "☀️ Protección Solar",
+    desc: "Protector solar esencia con ingredientes naturales. Mejora arrugas y aclara el tono. SPF 50+.",
+    img: "/images/bloqueador-essence-sun.png",
+    badge: "Premium",
+    price: "78.500",
+  },
+  {
+    name: "Atomy Absolute Snow",
+    category: "☀️ Protección Total 360°",
+    desc: "Protección total UVA/UVB. Ingredientes naturales que aclaran, hidratan y protegen tu piel. PRODUCTO PREMIUM.",
+    img: "/images/bloqueador-snow.png",
+    badge: "Premium",
+    price: "85.000",
+  },
+  {
+    name: "Atomy Protector Solar Beige",
+    category: "☀️ Cosmética Funcional",
+    desc: "Cobertura ligera que unifica el tono de piel. Protección 360° continua. Hidrata y cuida naturalmente.",
+    img: "/images/bloqueador-beige.png",
+    badge: "Premium",
+    price: "75.500",
   },
 ];
 
 const benefits = [
   {
-    icon: <CheckCircle size={24} className="text-[#3ED9C4]" />,
-    title: "100% Orgánicos",
-    desc: "Cada producto pasa controles de calidad. Sin artificiales, sin atajos.",
+    icon: <Zap size={28} className="text-[#3ED9C4]" />,
+    title: "Energía Natural",
+    desc: "Despierta cada mañana con vitalidad real. Sin estimulantes, sin efectos secundarios. Tu energía viene de adentro.",
+    tag: "Vitalidad",
   },
   {
-    icon: <Truck size={24} className="text-[#3ED9C4]" />,
-    title: "Envíos a todo Colombia",
-    desc: "Desde Leticia hasta La Guajira. Tu pedido llega donde estés.",
+    icon: <Sparkles size={28} className="text-[#3ED9C4]" />,
+    title: "Salud Oral",
+    desc: "Una sonrisa saludable que comunica bienestar. Ingredientes naturales que protegen y fortalecen sin agresivos.",
+    tag: "Higiene Premium",
   },
   {
-    icon: <Shield size={24} className="text-[#3ED9C4]" />,
-    title: "Sistema Inmune Fuerte",
-    desc: "Formulados para fortalecer tus defensas naturales.",
+    icon: <Leaf size={28} className="text-[#3ED9C4]" />,
+    title: "Bienestar Integral",
+    desc: "Mente, cuerpo y sistema inmune en equilibrio. Un estilo de vida que se siente, no solo se ve.",
+    tag: "Estilo de vida",
   },
   {
-    icon: <FlaskConical size={24} className="text-[#3ED9C4]" />,
-    title: "Laboratorios Certificados",
-    desc: "Producidos en instalaciones con los más altos estándares internacionales.",
+    icon: <Shield size={28} className="text-[#3ED9C4]" />,
+    title: "Belleza Natural",
+    desc: "Cuida tu piel con ingredientes que la nutren de verdad. Sin tóxicos. Sin artificiales. Solo naturaleza.",
+    tag: "Cuidado",
+  },
+];
+
+// Celion — organizados por BENEFICIO PRINCIPAL
+// Grupo A: Energía y Vitalidad
+// Grupo B: Bienestar Integral & Detox
+const celionProducts = [
+  // ── GRUPO A: Energía y Vitalidad ──────────────────
+  {
+    name: "Cellergy BOOST®",
+    subtitle: "⚡ Energía y Vitalidad",
+    tagline: "Energía celular avanzada para cuerpo y mente. Actívate sin estimulantes artificiales.",
+    img: "/images/celion-boost.jpeg",
+    bullets: [
+      "Activa tu energía desde la célula",
+      "Mejora el enfoque y el rendimiento mental",
+      "Antioxidantes de alta biodisponibilidad",
+    ],
+    price: "270.000",
+  },
+  {
+    name: "NEUROcell®",
+    subtitle: "🧠 Enfoque y Claridad Mental",
+    tagline: "Tu cerebro al máximo. Más concentración, menos estrés, mejor rendimiento.",
+    img: "/images/celion-neurocell.jpeg",
+    bullets: [
+      "Potencia memoria y concentración",
+      "Reduce la fatiga y el estrés mental",
+      "Mejora el biorritmo y el estado de ánimo",
+    ],
+  },
+  // ── GRUPO B: Bienestar Integral & Detox ───────────
+  {
+    name: "Celion POWER®",
+    subtitle: "💚 Bienestar Integral",
+    tagline: "Nutrición celular avanzada para revitalizar tu organismo desde el interior.",
+    img: "/images/celion-power.jpeg",
+    bullets: [
+      "Regeneración celular profunda",
+      "Fortalece y activa el sistema inmune",
+      "Fórmula única con +240 compuestos naturales",
+    ],
+    price: "600.000",
+  },
+  {
+    name: "MUNO T®",
+    subtitle: "🍃 Detox y Equilibrio Natural",
+    tagline: "Infusión herbal que apoya la limpieza natural de tu organismo día a día.",
+    img: "/images/celion-munot.jpeg",
+    bullets: [
+      "Apoya la desintoxicación de colon e hígado",
+      "Estimula la digestión y el equilibrio",
+      "Ingredientes herbales 100% naturales",
+    ],
+    price: "80.000",
   },
 ];
 
@@ -196,6 +403,204 @@ const productVideos = [
   { src: "/videos/video-1.mp4", title: "Producto en acción" },
   { src: "/videos/video-2.mp4", title: "Testimonios reales" },
   { src: "/videos/video-3.mp4", title: "Conoce la línea" },
+];
+
+// Productos Estrella — organizados por BENEFICIO PRINCIPAL
+const productosEstrella = [
+  // ☕ ENERGÍA NATURAL
+  {
+    name: "Lingzhi Black Coffee 2 en 1",
+    category: "☕ Energía Natural",
+    desc: "Café negro con extracto de Ganoderma lucidum. El ritual de cada mañana con un propósito real.",
+    img: "/images/cafe-lingzhi.png",
+    badge: "Bestseller",
+  },
+  {
+    name: "Cream Coffee",
+    category: "☕ Energía Natural",
+    desc: "Café cremoso con Ganoderma Lucidum. Sabor suave, energía real. Ideal para toda la familia.",
+    img: "/images/cafe-creamcoffee-premium.png",
+    badge: "Natural",
+  },
+  // 🌿 INMUNIDAD & BIENESTAR
+  {
+    name: "Línea Ganoterapia",
+    category: "🌿 Inmunidad & Bienestar",
+    desc: "Reishlgano (RG) + Ganocelium (GL) + Spirulina. El trío que fortalece tu sistema inmune y tu vitalidad celular.",
+    img: "/images/ganoterapia-banner.png",
+    badge: "Premium",
+  },
+  {
+    name: "Morinzhi",
+    category: "💧 Detox Natural",
+    desc: "Bebida botánica de Noni y Roselle. Sin químicos añadidos. Depura, fortalece y nutre desde adentro.",
+    img: "/images/morinzhi-premium.png",
+    badge: "Bestseller",
+  },
+  // 🧠 COGNITIVO & CELULAR
+  {
+    name: "NEUROcell",
+    category: "🧠 Rendimiento Cognitivo",
+    desc: "Potencia tu cerebro con claridad mental, concentración y memoria. Fórmula avanzada Celion.",
+    img: "/images/celion-neurocell-poster.png",
+    badge: "Premium",
+  },
+  // 🦷 SALUD ORAL
+  {
+    name: "Ganozhi Toothpaste",
+    category: "🦷 Salud Oral",
+    desc: "Pasta dental con Ganoderma. Protección natural contra caries, encías sanas, aliento fresco.",
+    img: "/images/oral-ganozhi.png",
+    badge: "Bestseller",
+  },
+];
+
+const ninosProducts = [
+  {
+    name: "Calcio Nutritivo Infantil",
+    badge: "🟡 Crecimiento fuerte",
+    badgeClass: "bg-amber-100 text-amber-700",
+    desc: "Crecen fuertes, sanos y felices. Calcio + Zinc + Vitamina D para huesos, dientes y sistema nervioso. 10 sobres.",
+    img: "/images/ninos-calcio.png",
+    price: "130.500",
+    waMsg: "Hola Yesit! Me interesa el Calcio Nutritivo Infantil para mi hijo/a. ¿Cómo lo consigo? 🧒🌿",
+  },
+  {
+    name: "Spirulina",
+    badge: "🟢 Defensas naturales",
+    badgeClass: "bg-green-100 text-green-700",
+    desc: "Un superalimento 100% natural. Combate la desnutrición, previene la anemia y fortalece el sistema inmunológico. 120 tabletas.",
+    img: "/images/ninos-spirulina.png",
+    price: "119.500",
+    waMsg: "Hola Yesit! Me interesa la Spirulina para niños. ¿Me cuentas más? 🌿",
+  },
+  {
+    name: "Cocozhi",
+    badge: "🟣 Rutina diaria",
+    badgeClass: "bg-purple-100 text-purple-700",
+    desc: "Desayuno nutritivo que los niños aman. Chocolate con Ganoderma: antioxidante, fortalece defensas y apoya el crecimiento balanceado. 20 sobres.",
+    img: "/images/ninos-cocozhi.png",
+    price: "114.500",
+    waMsg: "Hola Yesit! Me interesa el Cocozhi para niños. ¿Cómo lo pido? 🍫🌿",
+  },
+  {
+    name: "Cepillo Dental para Niños",
+    badge: "🔵 Higiene saludable",
+    badgeClass: "bg-sky-100 text-sky-700",
+    desc: "Cerdas antibacterianas bañadas en polvo de oro. Certificación KIFA. Diseñado para manitas pequeñas y bocas en crecimiento.",
+    img: "/images/ninos-cepillo.png",
+    price: "17.500",
+    waMsg: "Hola Yesit! Me interesa el Cepillo Dental Antibacteriano para niños. ¿Cuánto vale? 🦷🌿",
+  },
+];
+
+const kits = [
+  {
+    name: "Kit Salud Oral Natural",
+    tag: "Más pedido",
+    icon: <Sparkles size={24} className="text-[#3ED9C4]" />,
+    desc: "Protección completa para tu sonrisa. Tres fórmulas naturales que se complementan.",
+    items: [
+      "Ganozhi Toothpaste — Ganoderma",
+      "HGW Turmalina Negra — Remineraliza",
+      "Green World Herbs Fresh Mint — Herbal",
+    ],
+    accentColor: "bg-[#3ED9C4]",
+    textColor: "text-[#1B3A7A]",
+  },
+  {
+    name: "Kit Energía & Bienestar",
+    tag: "Premium",
+    icon: <Zap size={24} className="text-[#3ED9C4]" />,
+    desc: "Tu rutina de bienestar completa. Energía real por la mañana, defensas activas todo el día.",
+    items: [
+      "Lingzhi Black Coffee — Energía",
+      "Reishi Gano RG — Inmunidad",
+      "Spirulina — Nutrición celular",
+    ],
+    accentColor: "bg-[#1B3A7A]",
+    textColor: "text-white",
+  },
+  {
+    name: "Kit Cuidado de la Piel",
+    tag: "Natural",
+    icon: <Leaf size={24} className="text-[#3ED9C4]" />,
+    desc: "Rutina completa para piel limpia y protegida. Del baño a la protección solar.",
+    items: [
+      "Jabón Turmalina SOAT — Antibacteriano",
+      "Jabón Ganozhi — Limpieza natural",
+      "Atomy Sun Stick FPS 50+ — Protección UV",
+    ],
+    accentColor: "bg-green-600",
+    textColor: "text-white",
+  },
+];
+
+const familiaItems = [
+  {
+    icon: <Baby size={32} className="text-[#3ED9C4]" />,
+    title: "Niños",
+    badge: "Crecimiento & Defensas",
+    desc: "Crecimiento saludable, defensas fuertes y hábitos diarios para los más pequeños.",
+    img: "/images/ninos-calcio.png",
+    gradient: "from-sky-50 to-blue-100",
+    accent: "#0ea5e9",
+    products: [
+      { name: "Calcio Nutritivo", benefit: "Desarrollo y crecimiento" },
+      { name: "Cepillo Antibacteriano", benefit: "Dientes más sanos y fuertes" },
+      { name: "Spirulina", benefit: "Más defensas naturales" },
+      { name: "Cocozhi", benefit: "Desayuno nutritivo" },
+    ],
+    waMsg: "Hola Yesit! Busco productos para niños. ¿Qué me recomiendas? 👶🌿",
+  },
+  {
+    icon: <TrendingUp size={32} className="text-[#3ED9C4]" />,
+    title: "Adultos activos",
+    badge: "Energía & Rendimiento",
+    desc: "Energía natural y bienestar diario para mantener el ritmo de vida moderno.",
+    img: "/images/familia-adultos-activos.png",
+    gradient: "from-amber-50 to-orange-100",
+    accent: "#f97316",
+    products: [
+      { name: "Lingzhi Black Coffee", benefit: "Energía natural sin artificiales" },
+      { name: "NEUROcell®", benefit: "Enfoque y claridad mental" },
+      { name: "Cellergy BOOST®", benefit: "Vitalidad celular avanzada" },
+      { name: "Morinzhi", benefit: "Detox y equilibrio diario" },
+    ],
+    waMsg: "Hola Yesit! Soy una persona activa y busco productos para energía y rendimiento. ¿Qué me recomiendas? 💪🌿",
+  },
+  {
+    icon: <Heart size={32} className="text-[#3ED9C4]" />,
+    title: "Mujeres",
+    badge: "Equilibrio & Bienestar",
+    desc: "Equilibrio, vitalidad y cuidado integral para sentirte bien por dentro y por fuera.",
+    imgs: ["/images/familia-mujeres-1.png", "/images/familia-mujeres-2.png"],
+    gradient: "from-rose-50 to-pink-100",
+    accent: "#ec4899",
+    products: [
+      { name: "Cellagen GLOW", benefit: "Colágeno premium para piel y articulaciones" },
+      { name: "Atomy Sun Stick FPS 50+", benefit: "Protección solar diaria" },
+      { name: "Reishi Gano (RG)", benefit: "Inmunidad y equilibrio hormonal" },
+      { name: "Ganozhi Shampoo", benefit: "Cuidado capilar natural" },
+    ],
+    waMsg: "Hola Yesit! Busco productos de bienestar y cuidado para mujeres. ¿Qué me recomiendas? 🌸🌿",
+  },
+  {
+    icon: <Users size={32} className="text-[#3ED9C4]" />,
+    title: "Adultos mayores",
+    badge: "Movilidad & Salud",
+    desc: "Bienestar, movilidad y nutrición pensada para una vida activa y saludable.",
+    imgs: ["/images/familia-mayores-1.png", "/images/familia-mayores-2.png", "/images/familia-mayores-3.png"],
+    gradient: "from-emerald-50 to-teal-100",
+    accent: "#14b8a6",
+    products: [
+      { name: "Reishi Gano (RG)", benefit: "Articulaciones y circulación" },
+      { name: "Ganocelium (GL)", benefit: "Resistencia y defensas naturales" },
+      { name: "Spirulina", benefit: "Nutrición completa y energía" },
+      { name: "Morinzhi", benefit: "Equilibrio digestivo y detox" },
+    ],
+    waMsg: "Hola Yesit! Busco productos de bienestar para adultos mayores. ¿Qué me recomiendas? 🌱",
+  },
 ];
 
 const testimonials = [
@@ -219,150 +624,7 @@ const testimonials = [
   },
 ];
 
-// ─── Componente de tarjeta de producto ───────────────────────────────────────
-function ProductCard({
-  name,
-  category,
-  desc,
-  img,
-  badge,
-}: {
-  name: string;
-  category: string;
-  desc?: string;
-  img: string;
-  badge?: string;
-}) {
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group relative">
-      {badge && (
-        <div className="absolute top-3 left-3 z-10 bg-[#3ED9C4] text-[#1B3A7A] text-xs font-bold px-3 py-1 rounded-full">
-          {badge}
-        </div>
-      )}
-      <div className="relative h-56 bg-gray-50 overflow-hidden">
-        <Image
-          src={img}
-          alt={name}
-          fill
-          className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-      </div>
-      <div className="p-5">
-        <span className="text-xs font-semibold text-[#3ED9C4] uppercase tracking-wider">
-          {category}
-        </span>
-        <h3 className="font-display font-bold text-[#1B3A7A] text-lg mt-1 mb-1">
-          {name}
-        </h3>
-        {desc && (
-          <p className="text-[#5A6478] text-xs leading-relaxed mb-4">{desc}</p>
-        )}
-        <a
-          href="https://wa.me/573203358826"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-semibold text-sm hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-colors"
-        >
-          <MessageCircle size={15} />
-          Consultar precio
-        </a>
-      </div>
-    </div>
-  );
-}
-
-// ─── Tarjeta de producto con video ───────────────────────────────────────────
-function VideoProductCard({
-  name,
-  category,
-  desc,
-  videoSrc,
-  badge,
-}: {
-  name: string;
-  category: string;
-  desc?: string;
-  videoSrc: string;
-  badge?: string;
-}) {
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group relative">
-      {badge && (
-        <div className="absolute top-3 left-3 z-10 bg-[#3ED9C4] text-[#1B3A7A] text-xs font-bold px-3 py-1 rounded-full">
-          {badge}
-        </div>
-      )}
-      <div className="relative h-56 bg-[#F4F6F9] overflow-hidden">
-        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-        <video
-          src={videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-      </div>
-      <div className="p-5">
-        <span className="text-xs font-semibold text-[#3ED9C4] uppercase tracking-wider">
-          {category}
-        </span>
-        <h3 className="font-display font-bold text-[#1B3A7A] text-lg mt-1 mb-1">
-          {name}
-        </h3>
-        {desc && (
-          <p className="text-[#5A6478] text-xs leading-relaxed mb-4">{desc}</p>
-        )}
-        <a
-          href="https://wa.me/573203358826"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-semibold text-sm hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-colors"
-        >
-          <MessageCircle size={15} />
-          Consultar precio
-        </a>
-      </div>
-    </div>
-  );
-}
-
-// ─── Sección de productos por línea ──────────────────────────────────────────
-function ProductLineSection({
-  id,
-  label,
-  title,
-  bg,
-  products,
-}: {
-  id?: string;
-  label: string;
-  title: string;
-  bg: string;
-  products: { name: string; category: string; desc?: string; img: string }[];
-}) {
-  return (
-    <section id={id} className={`py-20 ${bg}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-            {label}
-          </span>
-          <h2 className="font-display font-bold text-[#1B3A7A] text-3xl md:text-4xl mt-2">
-            {title}
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {products.map((p) => (
-            <ProductCard key={p.name} {...p} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+// Los componentes ProductCard y VideoProductCard están en src/components/
 
 // ─── Página principal ─────────────────────────────────────────────────────────
 export default function Home() {
@@ -372,25 +634,24 @@ export default function Home() {
       <VideoHero />
 
       {/* CATEGORÍAS */}
-      <section id="categorias" className="py-24 bg-white">
+      <section id="tienda" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-              Lo que ofrecemos
+              Bienestar natural para todos
             </span>
             <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-3">
-              Nuestras categorías
+              ¿Cómo quieres sentirte?
             </h2>
             <p className="text-[#5A6478] mt-4 max-w-xl mx-auto text-lg">
-              Cuatro líneas de productos. Un solo objetivo: que te sientas bien
-              de verdad.
+              Cada categoría conecta con un resultado real. Elige el beneficio que tu cuerpo necesita hoy.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat) => (
               <a
                 key={cat.title}
-                href="#productos"
+                href={cat.href}
                 className="group bg-[#F4F6F9] rounded-2xl p-8 flex flex-col items-center text-center hover:bg-[#1B3A7A] transition-colors duration-300"
               >
                 <div className="mb-5 p-4 bg-white rounded-2xl shadow-sm group-hover:bg-[#3ED9C4]/20 transition-colors">
@@ -408,78 +669,237 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LABORATORIOS ALTAMENTE CONFIABLES */}
-      <section id="productos" className="py-24 bg-[#1B3A7A]">
+      {/* ══════════════════════════════════════════════════ */}
+      {/* PRODUCTOS ESTRELLA — TOP VENTAS                */}
+      {/* ══════════════════════════════════════════════════ */}
+      <section className="py-24 bg-[#F4F6F9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-              Respaldo científico
-            </span>
-            <h2 className="font-display font-bold text-white text-4xl md:text-5xl mt-3">
-              Laboratorios Altamente Confiables
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 text-amber-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+                <Award size={14} />
+                Top Ventas
+              </div>
+              <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl leading-tight">
+                Lo que más eligen
+                <br />
+                <span className="text-[#3ED9C4]">nuestros clientes.</span>
+              </h2>
+              <p className="text-[#5A6478] mt-4 max-w-lg text-base leading-relaxed">
+                Productos probados. Resultados reales. Estos son los favoritos de las familias que ya cuidan su salud con nosotros.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/573203358826"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-2 border-2 border-[#1B3A7A] text-[#1B3A7A] px-6 py-3 rounded-full font-bold text-sm hover:bg-[#1B3A7A] hover:text-white transition-colors whitespace-nowrap"
+            >
+              <MessageCircle size={16} />
+              Asesoría gratis
+            </a>
+          </div>
+
+          {/* Grid de productos estrella */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {productosEstrella.map((p, i) => (
+              <div key={p.name} className="relative">
+                {i === 0 && (
+                  <div className="absolute -top-3 -right-3 z-20 bg-amber-400 text-amber-900 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
+                    #1 más vendido
+                  </div>
+                )}
+                <ProductCard {...p} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* CELION — NUTRICIÓN CELULAR PREMIUM              */}
+      {/* ══════════════════════════════════════════════════ */}
+      <section className="py-24 bg-[#070f1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Brand header */}
+          <div className="text-center mb-14">
+            {/* Logo Celion en CSS */}
+            <div className="inline-flex items-center gap-2.5 mb-6">
+              <div className="relative w-9 h-9 rounded-full border-2 border-[#F26010] flex items-center justify-center">
+                <div className="w-3.5 h-3.5 rounded-full bg-[#F26010]" />
+                <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#F26010]" />
+              </div>
+              <span className="text-white font-display font-extrabold text-3xl tracking-widest">
+                celion
+              </span>
+            </div>
+
+            <div className="flex justify-center mb-5">
+              <span className="bg-[#F26010]/15 border border-[#F26010]/30 text-[#F26010] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full">
+                Línea Premium · Nutrición Celular de Nueva Generación
+              </span>
+            </div>
+
+            <h2 className="font-display font-bold text-white text-4xl md:text-5xl mb-5 leading-tight">
+              Cuatro productos.
+              <br />
+              <span className="text-[#F26010]">Un solo objetivo: que te sientas bien.</span>
             </h2>
-            <p className="text-white/70 mt-4 max-w-2xl mx-auto text-lg">
-              Cada producto viene de laboratorios con certificación internacional.
-              No es un suplemento cualquiera. Es ciencia aplicada al bienestar.
+            <p className="text-white/50 max-w-xl mx-auto text-lg leading-relaxed">
+              Energía, enfoque, bienestar profundo y detox natural. Elige el que tu cuerpo necesita hoy.
             </p>
           </div>
 
-          {/* Destacados */}
-          <div className="mb-4">
-            <h3 className="font-display font-bold text-[#3ED9C4] text-2xl mb-6 flex items-center gap-3">
-              <Star size={24} className="fill-[#3ED9C4]" />
-              Destacados
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {destacados.map((p) => (
-              <ProductCard key={p.name} {...p} />
+          {/* Grid productos Celion */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {celionProducts.map((p) => (
+              <CelionCard key={p.name} {...p} />
             ))}
           </div>
 
-          {/* Ganoterapia */}
-          <div className="mb-4">
-            <h3 className="font-display font-bold text-[#3ED9C4] text-2xl mb-2 flex items-center gap-3">
-              <FlaskConical size={24} />
-              Ganoterapia
-            </h3>
-            <p className="text-white/60 text-sm mb-6">
-              Ganoderma lucidum — el hongo más estudiado de la naturaleza.
-            </p>
+          {/* Banner Cellagen GLOW */}
+          <div className="mt-10 rounded-3xl overflow-hidden border border-[#F26010]/20 shadow-2xl shadow-[#F26010]/5">
+            <div className="relative">
+              <Image
+                src="/images/celion-logo.png"
+                alt="Cellagen GLOW — Colágeno Celion con 3 péptidos bioactivos"
+                width={1400}
+                height={500}
+                className="w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#070f1a]/70 via-transparent to-transparent flex items-center">
+                <div className="px-10 max-w-md">
+                  <span className="text-[#F26010] text-xs font-bold uppercase tracking-widest block mb-2">
+                    También disponible
+                  </span>
+                  <h3 className="font-display font-bold text-white text-2xl md:text-3xl mb-3">
+                    Cellagen GLOW
+                  </h3>
+                  <p className="text-white/70 text-sm leading-relaxed mb-5">
+                    Colágeno premium con 3 péptidos bioactivos de patente clínica. Piel, articulaciones y vitalidad.
+                  </p>
+                  <a
+                    href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el Cellagen GLOW de Celion. ¿Cuánto vale? 🌿")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#F26010] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#d9530d] transition-colors"
+                  >
+                    <MessageCircle size={15} />
+                    Consultar precio
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {ganoterapia.map((p) => (
+
+          {/* CTA general Celion */}
+          <div className="mt-12 text-center">
+            <a
+              href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Quiero conocer la línea Celion completa. ¿Qué combo me recomiendas? 🌿")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-[#F26010] text-[#F26010] px-10 py-4 rounded-full font-bold text-base hover:bg-[#F26010] hover:text-white transition-colors"
+            >
+              <MessageCircle size={18} />
+              Conocer la línea Celion completa
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* INTRO LABORATORIOS                              */}
+      {/* ══════════════════════════════════════════════════ */}
+      <section id="productos" className="py-16 bg-[#1B3A7A]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
+            Respaldo científico
+          </span>
+          <h2 className="font-display font-bold text-white text-4xl md:text-5xl mt-3 mb-4">
+            Laboratorios Altamente Confiables
+          </h2>
+          <p className="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed">
+            Cada producto viene de laboratorios con certificación internacional.
+            No es un suplemento cualquiera. Es ciencia aplicada al bienestar.
+          </p>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* BENEFICIO 1: ENERGÍA Y VITALIDAD               */}
+      {/* ══════════════════════════════════════════════════ */}
+      <div id="energia" className="bg-gradient-to-r from-[#08245c] to-[#123a8f] py-8 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-center gap-4">
+            <div className="bg-[#3ED9C4]/20 p-3 rounded-2xl">
+              <Coffee size={28} className="text-[#3ED9C4]" />
+            </div>
+            <div>
+              <p className="text-[#3ED9C4] text-xs font-bold uppercase tracking-widest">Beneficio</p>
+              <h2 className="font-display font-bold text-white text-2xl md:text-3xl">Energía y Vitalidad</h2>
+            </div>
+          </div>
+          <p className="text-white/50 text-sm max-w-sm">
+            Vitalidad para tu día a día. Productos diseñados para impulsar tu energía física y mental de forma natural.
+          </p>
+        </div>
+      </div>
+
+      {/* Subcategoría: Cafés Destacados */}
+      <section className="py-10 bg-[#F4F6F9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <Star size={18} className="text-[#3ED9C4] fill-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
+            </span>
+          </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Cafés Destacados
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Café con Ganoderma lucidum. El mismo ritual de siempre, con un propósito nuevo.
+          </p>
+
+          {/* Productos cafés */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {destacados.map((p) => (
               <ProductCard key={p.name} {...p} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* BEBIDAS LÍQUIDAS */}
-      <section className="py-20 bg-[#F4F6F9]">
+      {/* Subcategoría: Jugos & Infusiones */}
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-              Bebidas naturales
+          <div className="flex items-center gap-3 mb-3">
+            <Leaf size={18} className="text-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
             </span>
-            <h2 className="font-display font-bold text-[#1B3A7A] text-3xl md:text-4xl mt-2">
-              Jugos e infusiones
-            </h2>
           </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Jugos & Infusiones
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Bebidas naturales concentradas para limpiar, nutrir y fortalecer tu sistema desde adentro.
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {/* Morinzhi y Morinzyme */}
             {bebidasLiquidas.slice(0, 2).map((p) => (
               <ProductCard key={p.name} {...p} />
             ))}
-            {/* Roselle — video de personaje como vista previa */}
-            <VideoProductCard
+            <ProductCard
               name="Roselle"
-              category="Bebida · Infusión"
-              desc="Bebida natural de flor de Jamaica. Rica en antioxidantes, vitamina C y propiedades depurativas."
-              videoSrc="/videos/personaje-roselle.mp4"
+              category="🌺 Antioxidante Natural"
+              desc="Bebida premium de flor de Jamaica. Rica en antioxidantes, vitamina C y propiedades depurativas. Fría o caliente."
+              img="/images/bebida-roselle.png"
               badge="Natural"
+              price="118.000"
             />
-            {/* Apple Juice Drink al final */}
             {bebidasLiquidas.slice(2).map((p) => (
               <ProductCard key={p.name} {...p} />
             ))}
@@ -487,34 +907,242 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CUIDADO PERSONAL */}
-      <section className="py-20 bg-white">
+      {/* ══════════════════════════════════════════════════ */}
+      {/* NIÑOS — CRECIMIENTO Y BIENESTAR INFANTIL        */}
+      {/* ══════════════════════════════════════════════════ */}
+      <section className="py-20 bg-gradient-to-b from-sky-50 via-white to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-              Cuidado exterior
-            </span>
-            <h2 className="font-display font-bold text-[#1B3A7A] text-3xl md:text-4xl mt-2">
-              Cuidado Personal
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+              <Baby size={14} />
+              Zona Infantil
+            </div>
+            <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-2 mb-4">
+              Crecimiento y bienestar infantil.
             </h2>
+            <p className="text-[#374151] max-w-xl mx-auto text-lg leading-relaxed">
+              Nutrición y hábitos diarios pensados para apoyar su crecimiento,
+              energía y defensas naturales. Seguros, naturales, para toda edad.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ninosProducts.map((p) => (
+              <div
+                key={p.name}
+                className="bg-white rounded-3xl overflow-hidden flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 group"
+              >
+                <div className="px-4 pt-4">
+                  <span className={`inline-flex items-center text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full ${p.badgeClass}`}>
+                    {p.badge}
+                  </span>
+                </div>
+                <div className="relative h-64 mx-2 mt-2 flex-shrink-0">
+                  <Image
+                    src={p.img}
+                    alt={p.name}
+                    fill
+                    className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-display font-bold text-[#1B3A7A] text-base mb-2 leading-snug">
+                    {p.name}
+                  </h3>
+                  <p className="text-[#374151] text-xs leading-relaxed mb-3 flex-1">
+                    {p.desc}
+                  </p>
+                  {p.price && (
+                    <div className="flex items-center gap-2 mb-3 px-3 py-2 bg-[#F4F6F9] rounded-xl">
+                      <span className="text-[#3ED9C4] text-sm font-extrabold">✦</span>
+                      <span className="text-[#1B3A7A] font-extrabold text-sm">Desde ${p.price}</span>
+                      <span className="text-[#6B7280] text-xs">COP</span>
+                    </div>
+                  )}
+                  <a
+                    href={`https://wa.me/573203358826?text=${encodeURIComponent(p.waMsg)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-2.5 rounded-2xl font-bold text-xs hover:bg-[#20b858] hover:scale-[1.02] transition-all duration-200 shadow-sm hover:shadow-[0_6px_18px_rgba(37,211,102,0.35)]"
+                  >
+                    <MessageCircle size={13} />
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-[#374151] text-sm mb-4">
+              ¿No sabes cuál es el ideal para tu hijo/a? Yesit te asesora sin compromiso.
+            </p>
+            <a
+              href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Busco productos para el bienestar de mis hijos. ¿Qué me recomiendas según su edad? 👶🌿")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#1B3A7A] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-md"
+            >
+              <MessageCircle size={16} />
+              Asesoría gratuita para padres
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* BENEFICIO 2: BIENESTAR INTEGRAL                 */}
+      {/* ══════════════════════════════════════════════════ */}
+      <div id="bienestar" className="bg-gradient-to-r from-[#08245c] to-[#123a8f] py-8 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-center gap-4">
+            <div className="bg-[#3ED9C4]/20 p-3 rounded-2xl">
+              <FlaskConical size={28} className="text-[#3ED9C4]" />
+            </div>
+            <div>
+              <p className="text-[#3ED9C4] text-xs font-bold uppercase tracking-widest">Beneficio</p>
+              <h2 className="font-display font-bold text-white text-2xl md:text-3xl">
+                Bienestar Integral
+              </h2>
+            </div>
+          </div>
+          <p className="text-white/50 text-sm max-w-sm">
+            Nutrición avanzada para revitalizar tu organismo desde el interior. Salud profunda que se siente, no solo se ve.
+          </p>
+        </div>
+      </div>
+
+      {/* Subcategoría: Ganoterapia */}
+      <section className="py-10 bg-[#F4F6F9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <FlaskConical size={18} className="text-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
+            </span>
+          </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Ganoterapia & Defensas
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Ganoderma lucidum — el hongo más estudiado de la naturaleza. 4,000 años de uso medicinal, respaldado por ciencia moderna. Sistema inmune fuerte, vitalidad real.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {ganoterapia.map((p) => (
+              <ProductCard key={p.name} {...p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* BENEFICIO 3: CUIDADO NATURAL                    */}
+      {/* ══════════════════════════════════════════════════ */}
+      <div id="cuidado" className="bg-gradient-to-r from-[#08245c] to-[#123a8f] py-8 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-center gap-4">
+            <div className="bg-[#3ED9C4]/20 p-3 rounded-2xl">
+              <Sparkles size={28} className="text-[#3ED9C4]" />
+            </div>
+            <div>
+              <p className="text-[#3ED9C4] text-xs font-bold uppercase tracking-widest">Beneficio</p>
+              <h2 className="font-display font-bold text-white text-2xl md:text-3xl">
+                Cuidado Natural Premium
+              </h2>
+            </div>
+          </div>
+          <p className="text-white/50 text-sm max-w-sm">
+            Apoya los procesos naturales de limpieza y bienestar. Piel, sonrisa y cuerpo en equilibrio real.
+          </p>
+        </div>
+      </div>
+
+      {/* Subcategoría: Línea Dermocosmética */}
+      <section className="py-10 bg-[#F4F6F9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <Sparkles size={18} className="text-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
+            </span>
+          </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Línea Dermocosmética
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Aceites, geles y labiales con extracto de Ganoderma. Cuidado que se siente diferente.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {cuidadoPersonal.map((p) => (
               <ProductCard key={p.name} {...p} />
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Salud Oral */}
-          <div className="mb-8">
-            <h3 className="font-display font-bold text-[#1B3A7A] text-2xl mb-2 flex items-center gap-3">
-              <Sparkles size={22} className="text-[#3ED9C4]" />
-              Salud Oral
-            </h3>
-            <p className="text-[#5A6478] text-sm mb-8 max-w-xl">
-              Fórmulas naturales con ingredientes activos para una sonrisa saludable y una higiene bucal completa.
-            </p>
+      {/* Subcategoría: Jabones */}
+      <section className="py-10 bg-[#F4F6F9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <Zap size={18} className="text-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
+            </span>
           </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Jabones Naturales
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Jabones artesanales con minerales, extractos naturales y Ganoderma. Limpieza profunda que cuida tu piel sin agresivos químicos.
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {jabones.map((p) => (
+              <ProductCard key={p.name} {...p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Subcategoría: Bloqueadores Solares */}
+      <section className="py-10 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <Shield size={18} className="text-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
+            </span>
+          </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Bloqueadores Solares
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Protección UV de alta eficacia con ingredientes naturales. Cuida tu piel del sol sin residuos, sin grasa.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {bloqueadores.map((p) => (
+              <ProductCard key={p.name} {...p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Subcategoría: Salud Oral */}
+      <section className="py-10 bg-[#F4F6F9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <Shield size={18} className="text-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
+            </span>
+          </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Salud Oral
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Pastas dentales con turmalina, Ganoderma e ingredientes naturales. Blanqueamiento, remineralización y protección sin flúor.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {saludOral.map((p) => (
               <ProductCard key={p.name} {...p} />
             ))}
@@ -522,47 +1150,320 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BENEFICIOS */}
+      {/* Subcategoría: Higiene Bucal Completa */}
+      <section className="py-10 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <Sparkles size={18} className="text-[#3ED9C4]" />
+            <span className="text-[#3ED9C4] font-bold text-xs uppercase tracking-widest">
+              Subcategoría
+            </span>
+          </div>
+          <h3 className="font-display font-bold text-[#1B3A7A] text-2xl md:text-3xl mb-2">
+            Higiene Bucal Completa
+          </h3>
+          <p className="text-[#374151] text-sm mb-10 max-w-xl">
+            Más allá de la pasta dental. Un sistema completo de cuidado oral natural para toda la familia — en casa y donde vayas.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {higieneBucal.map((p) => (
+              <ProductCard key={p.name} {...p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* PARA TODA LA FAMILIA                            */}
+      {/* ══════════════════════════════════════════════════ */}
       <section className="py-24 bg-[#F4F6F9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-                Por qué elegirnos
-              </span>
-              <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-3 mb-6">
-                La salud no es suerte.
-                <br />
-                Es una decisión diaria.
-              </h2>
-              <p className="text-[#5A6478] text-lg leading-relaxed mb-8">
-                Trabajamos con líneas de productos orgánicos que respetan tu
-                cuerpo. Nada de fórmulas genéricas. Cada producto tiene un
-                propósito claro y resultados que se sienten.
-              </p>
-              <a
-                href="https://wa.me/573203358826"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#1B3A7A] text-white px-8 py-4 rounded-full font-bold hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-colors"
+          <div className="text-center mb-16">
+            <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
+              Un producto para cada quien
+            </span>
+            <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-3 mb-4">
+              Para toda la familia.
+            </h2>
+            <p className="text-[#5A6478] max-w-xl mx-auto text-lg leading-relaxed">
+              No importa la edad. Hay un producto pensado para cada etapa de la vida. Así cuida una familia de verdad.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {familiaItems.map((item) => (
+              <div
+                key={item.title}
+                className="bg-white rounded-3xl overflow-hidden flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100"
               >
-                <MessageCircle size={18} />
-                Hablar con un Asesor
-              </a>
+                <div className={`relative bg-gradient-to-br ${item.gradient} overflow-hidden ${"imgs" in item && item.imgs ? "h-52" : "h-44"}`}>
+                  {"imgs" in item && item.imgs ? (
+                    <div className={`grid h-full gap-0.5 ${item.imgs.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+                      {item.imgs.map((src: string, i: number) => (
+                        <div key={i} className="relative overflow-hidden">
+                          <Image
+                            src={src}
+                            alt={`${item.title} ${i + 1}`}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 50vw, 12vw"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : item.img ? (
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 25vw"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center h-full opacity-20">{item.icon}</div>
+                  )}
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-white/90 backdrop-blur-sm text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm" style={{ color: item.accent }}>
+                      {item.badge}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${item.accent}18` }}>
+                      <div style={{ color: item.accent }} className="scale-75">{item.icon}</div>
+                    </div>
+                    <h3 className="font-display font-bold text-[#1B3A7A] text-lg leading-tight">{item.title}</h3>
+                  </div>
+                  <p className="text-[#374151] text-xs leading-relaxed mb-4">{item.desc}</p>
+                  <ul className="space-y-2 mb-5 flex-1">
+                    {item.products.map((p) => (
+                      <li key={p.name} className="flex items-start gap-2">
+                        <span className="text-[#3ED9C4] font-bold text-xs mt-0.5 flex-shrink-0">▸</span>
+                        <div>
+                          <span className="text-[#1B3A7A] font-semibold text-xs">{p.name}</span>
+                          <span className="text-[#6B7280] text-xs"> — {p.benefit}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`https://wa.me/573203358826?text=${encodeURIComponent(item.waMsg)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full bg-[#1B3A7A] text-white py-2.5 rounded-2xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm"
+                  >
+                    <MessageCircle size={13} />
+                    Ver productos
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href="https://wa.me/573203358826"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-[#1B3A7A] text-[#1B3A7A] px-8 py-3.5 rounded-full font-bold text-sm hover:bg-[#1B3A7A] hover:text-white transition-all duration-200"
+            >
+              <MessageCircle size={16} />
+              ¿No sabes cuál es el tuyo? Escríbeme y te ayudo
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* CARRUSEL 3D — PERSONAJES                       */}
+      {/* ══════════════════════════════════════════════════ */}
+      <VideoCarousel />
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* BENEFICIOS — ESTILO DE VIDA                     */}
+      {/* ══════════════════════════════════════════════════ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-[#3ED9C4] font-semibold text-base uppercase tracking-widest">
+              Un estilo de vida
+            </span>
+            <h2 className="font-display font-bold text-[#1B3A7A] text-5xl md:text-6xl mt-3 mb-4 leading-tight">
+              Hoy no eliges solo productos.
+              <br />
+              <span className="text-[#3ED9C4]">Eliges cómo quieres sentirte.</span>
+            </h2>
+            <p className="text-[#5A6478] max-w-xl mx-auto text-lg leading-relaxed">
+              Cada producto que ofrecemos tiene un propósito claro. No vendemos
+              cajas. Vendemos resultados que se sienten.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((b) => (
+              <div
+                key={b.title}
+                className="group bg-[#F4F6F9] rounded-3xl p-8 flex flex-col hover:bg-[#1B3A7A] transition-all duration-300 cursor-default"
+              >
+                <div className="mb-2">
+                  <span className="text-[#3ED9C4] text-xs font-bold uppercase tracking-widest group-hover:text-[#3ED9C4]">
+                    {b.tag}
+                  </span>
+                </div>
+                <div className="mb-4 p-3 bg-white rounded-2xl w-fit shadow-sm group-hover:bg-[#3ED9C4]/20 transition-colors">
+                  {b.icon}
+                </div>
+                <h3 className="font-display font-bold text-[#1B3A7A] group-hover:text-white text-xl mb-3 transition-colors">
+                  {b.title}
+                </h3>
+                <p className="text-[#5A6478] group-hover:text-white/75 text-sm leading-relaxed transition-colors flex-1">
+                  {b.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* KITS & COMBOS                                   */}
+      {/* ══════════════════════════════════════════════════ */}
+      <section id="combos" className="py-24 bg-white scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#3ED9C4]/10 border border-[#3ED9C4]/30 text-[#1B3A7A] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+              <Gift size={14} />
+              Combos especiales
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {benefits.map((b) => (
-                <div key={b.title} className="bg-white rounded-2xl p-6">
-                  <div className="mb-3">{b.icon}</div>
-                  <h3 className="font-display font-bold text-[#1B3A7A] text-lg mb-2">
-                    {b.title}
+            <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-2 mb-4">
+              Combos que transforman.
+            </h2>
+            <p className="text-[#5A6478] max-w-xl mx-auto text-lg leading-relaxed">
+              Los mejores resultados se logran con rutinas completas. Estos combos son los que más se piden — y los que más funcionan.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {kits.map((kit) => (
+              <div
+                key={kit.name}
+                className="bg-[#F4F6F9] rounded-3xl overflow-hidden flex flex-col shadow-sm hover:shadow-lg transition-shadow"
+              >
+                {/* Cabecera */}
+                <div className={`${kit.accentColor} px-7 pt-7 pb-5`}>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="bg-white/20 p-2.5 rounded-xl">
+                      {kit.icon}
+                    </div>
+                    <span className={`text-xs font-bold uppercase tracking-widest ${kit.textColor} opacity-80`}>
+                      {kit.tag}
+                    </span>
+                  </div>
+                  <h3 className={`font-display font-bold text-xl ${kit.textColor}`}>
+                    {kit.name}
                   </h3>
-                  <p className="text-[#5A6478] text-sm leading-relaxed">
-                    {b.desc}
+                </div>
+
+                {/* Cuerpo */}
+                <div className="p-7 flex flex-col flex-1">
+                  <p className="text-[#5A6478] text-sm leading-relaxed mb-5">
+                    {kit.desc}
+                  </p>
+
+                  {/* Lista de productos */}
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {kit.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-[#1B3A7A]">
+                        <CheckCircle size={15} className="text-[#3ED9C4] flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <a
+                    href={`https://wa.me/573203358826?text=${encodeURIComponent(`Hola Yesit! Me interesa el ${kit.name}. ¿Cuál es el precio del combo? 🛍️`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full bg-[#1B3A7A] text-white py-3 rounded-xl font-bold text-sm hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-colors"
+                  >
+                    <MessageCircle size={15} />
+                    Consultar precio del kit
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════ */}
+      {/* CÓMO COMPRAR                                     */}
+      {/* ══════════════════════════════════════════════════ */}
+      <section className="py-24 bg-[#1B3A7A]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
+              Proceso de compra
+            </span>
+            <h2 className="font-display font-bold text-white text-4xl md:text-5xl mt-3">
+              Así de sencillo.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                icon: <Coffee size={28} className="text-[#3ED9C4]" />,
+                title: "Elige tu producto",
+                desc: "Explora nuestras categorías y encuentra lo que tu cuerpo necesita.",
+              },
+              {
+                step: "02",
+                icon: <CheckCircle size={28} className="text-[#3ED9C4]" />,
+                title: "Agrégalo al carrito",
+                desc: "Un clic y queda en tu pedido. Puedes agregar varios productos.",
+              },
+              {
+                step: "03",
+                icon: <MessageCircle size={28} className="text-[#3ED9C4]" />,
+                title: "Envía por WhatsApp",
+                desc: "Tu pedido llega a Yesit listo y ordenado. Él te confirma el total.",
+              },
+              {
+                step: "04",
+                icon: <Truck size={28} className="text-[#3ED9C4]" />,
+                title: "Recibe en casa",
+                desc: "Envíos a toda Colombia. Rápido, seguro y bien empacado.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="relative">
+                <div className="bg-white/5 rounded-3xl p-7 h-full border border-white/10 hover:border-[#3ED9C4]/40 transition-colors">
+                  <div className="text-[#3ED9C4]/30 font-display font-extrabold text-5xl leading-none mb-4">
+                    {item.step}
+                  </div>
+                  <div className="mb-4">{item.icon}</div>
+                  <h3 className="font-display font-bold text-white text-lg mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <a
+              href="#productos"
+              className="inline-flex items-center gap-2 bg-[#3ED9C4] text-[#1B3A7A] px-8 py-4 rounded-full font-bold text-base hover:bg-white transition-colors shadow-lg"
+            >
+              Ver productos →
+            </a>
           </div>
         </div>
       </section>
@@ -615,7 +1516,7 @@ export default function Home() {
                 href="https://wa.me/573203358826"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-base hover:bg-[#20b858] transition-colors shadow-lg"
+                className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-base hover:bg-[#20b858] hover:scale-[1.03] transition-all duration-200 shadow-[0_8px_20px_rgba(37,211,102,0.35)] hover:shadow-[0_12px_28px_rgba(37,211,102,0.5)]"
               >
                 <MessageCircle size={20} />
                 Hablar con Yesit ahora
@@ -625,102 +1526,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VIDEOS DE PERSONAJES 3D */}
-      <section id="videos" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-              Nuestros productos hablan
-            </span>
-            <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-3">
-              Conoce sus beneficios en 3D
-            </h2>
-            <p className="text-[#5A6478] mt-4 max-w-xl mx-auto text-lg">
-              Cada producto tiene su propia historia. Mira cómo te la cuentan.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {personajeVideos.slice(0, 3).map((video, i) => (
-              <div
-                key={i}
-                className="rounded-2xl overflow-hidden shadow-md bg-[#F4F6F9]"
-              >
-                <video
-                  src={video.src}
-                  controls
-                  preload="none"
-                  className="w-full aspect-video object-cover"
-                >
-                  Tu navegador no soporta video HTML5.
-                </video>
-                <div className="p-4 flex items-center gap-2">
-                  <Play size={16} className="text-[#3ED9C4]" />
-                  <span className="text-[#1B3A7A] font-semibold text-sm">
-                    {video.title}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {personajeVideos.slice(3).map((video, i) => (
-              <div
-                key={i}
-                className="rounded-2xl overflow-hidden shadow-md bg-[#F4F6F9]"
-              >
-                <video
-                  src={video.src}
-                  controls
-                  preload="none"
-                  className="w-full aspect-video object-cover"
-                >
-                  Tu navegador no soporta video HTML5.
-                </video>
-                <div className="p-4 flex items-center gap-2">
-                  <Play size={16} className="text-[#3ED9C4]" />
-                  <span className="text-[#1B3A7A] font-semibold text-sm">
-                    {video.title}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* VIDEOS DE PRODUCTOS */}
-      <section className="py-16 bg-[#F4F6F9]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-display font-bold text-[#1B3A7A] text-3xl mt-3">
-              Mira los productos en acción
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {productVideos.map((video, i) => (
-              <div
-                key={i}
-                className="rounded-2xl overflow-hidden shadow-md bg-white"
-              >
-                <video
-                  src={video.src}
-                  controls
-                  preload="none"
-                  className="w-full aspect-video object-cover"
-                >
-                  Tu navegador no soporta video HTML5.
-                </video>
-                <div className="p-4 flex items-center gap-2">
-                  <Play size={16} className="text-[#3ED9C4]" />
-                  <span className="text-[#1B3A7A] font-semibold text-sm">
-                    {video.title}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Videos de personajes integrados dentro de cada categoría — sección eliminada */}
 
       {/* NUESTROS CLIENTES */}
       <section className="py-20 bg-white">
@@ -760,42 +1566,86 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section className="py-24 bg-[#F4F6F9]">
+      <section className="py-24 bg-[#1B3A7A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          {/* Header */}
+          <div className="text-center mb-6">
             <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
-              Testimonios
+              Testimonios reales
             </span>
-            <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-3">
-              Lo que dicen nuestros clientes
+            <h2 className="font-display font-bold text-white text-4xl md:text-5xl mt-3 mb-4">
+              Lo que dicen quienes ya lo viven.
             </h2>
           </div>
+
+          {/* Rating general */}
+          <div className="flex items-center justify-center gap-3 mb-14">
+            <div className="flex gap-1">
+              {[1,2,3,4,5].map((i) => (
+                <Star key={i} size={22} className="text-amber-400 fill-amber-400" />
+              ))}
+            </div>
+            <span className="text-white font-display font-bold text-2xl">5.0</span>
+            <span className="text-white/50 text-sm">· Valoración de clientes</span>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
+            {testimonials.map((t, idx) => (
               <div
                 key={t.name}
-                className="bg-white rounded-2xl p-8 flex flex-col"
+                className={`rounded-3xl p-8 flex flex-col ${
+                  idx === 1
+                    ? "bg-[#3ED9C4] text-[#1B3A7A]"
+                    : "bg-white/5 border border-white/10"
+                }`}
               >
+                {/* Comillas decorativas */}
+                <div className={`font-display text-6xl leading-none mb-2 ${idx === 1 ? "text-[#1B3A7A]/20" : "text-[#3ED9C4]/30"}`}>
+                  &ldquo;
+                </div>
+
+                <p className={`text-base leading-relaxed flex-1 mb-6 ${idx === 1 ? "text-[#1B3A7A]" : "text-white/85"}`}>
+                  {t.text}
+                </p>
+
+                {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.stars }).map((_, i) => (
                     <Star
                       key={i}
-                      size={18}
-                      className="text-[#3ED9C4] fill-[#3ED9C4]"
+                      size={16}
+                      className={idx === 1 ? "text-[#1B3A7A] fill-[#1B3A7A]" : "text-amber-400 fill-amber-400"}
                     />
                   ))}
                 </div>
-                <p className="text-[#1A1A2E] text-base leading-relaxed flex-1 mb-6">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div>
-                  <p className="font-display font-bold text-[#1B3A7A]">
-                    {t.name}
-                  </p>
-                  <p className="text-[#5A6478] text-sm">{t.city}</p>
+
+                {/* Autor */}
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-sm ${idx === 1 ? "bg-[#1B3A7A] text-white" : "bg-[#3ED9C4]/20 text-[#3ED9C4]"}`}>
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className={`font-display font-bold text-sm ${idx === 1 ? "text-[#1B3A7A]" : "text-white"}`}>
+                      {t.name}
+                    </p>
+                    <p className={`text-xs ${idx === 1 ? "text-[#1B3A7A]/60" : "text-white/50"}`}>{t.city}, Colombia</p>
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* CTA debajo */}
+          <div className="mt-12 text-center">
+            <a
+              href="https://wa.me/573203358826"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold hover:bg-[#20b858] transition-colors shadow-lg"
+            >
+              <MessageCircle size={18} />
+              Quiero empezar mi cambio
+            </a>
           </div>
         </div>
       </section>
@@ -820,7 +1670,7 @@ export default function Home() {
               href="https://wa.me/573203358826"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#20b858] transition-colors shadow-xl"
+              className="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#20b858] hover:scale-[1.03] transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:shadow-[0_14px_36px_rgba(37,211,102,0.55)]"
             >
               <MessageCircle size={24} />
               Escribir por WhatsApp
@@ -872,11 +1722,12 @@ export default function Home() {
               </h4>
               <ul className="space-y-2">
                 {[
-                  { href: "#categorias", label: "Categorías" },
-                  { href: "#productos", label: "Productos" },
-                  { href: "#asesora", label: "Tu Asesor" },
-                  { href: "#videos", label: "Videos" },
-                  { href: "#contacto", label: "Contáctenos" },
+                  { href: "#energia", label: "Energía Natural" },
+                  { href: "#bienestar", label: "Bienestar Integral" },
+                  { href: "#cuidado", label: "Cuidado Personal" },
+                  { href: "#combos", label: "Combos Wellness" },
+                  { href: "#asesora", label: "Nosotros" },
+                  { href: "#contacto", label: "Contacto" },
                 ].map((link) => (
                   <li key={link.href}>
                     <a

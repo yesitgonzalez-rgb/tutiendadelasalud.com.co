@@ -2,19 +2,21 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const navLinks = [
-  { href: "#categorias", label: "Categorías" },
-  { href: "#productos", label: "Productos" },
-  { href: "#asesora", label: "Tu Asesora" },
-  { href: "#videos", label: "Videos" },
-  { href: "#contacto", label: "Contáctenos" },
+  { href: "#energia", label: "Energía Natural" },
+  { href: "#bienestar", label: "Bienestar Integral" },
+  { href: "#cuidado", label: "Cuidado Personal" },
+  { href: "#combos", label: "Combos Wellness" },
+  { href: "#asesora", label: "Nosotros" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { openCart, totalItems } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,12 +26,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 bg-white ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-shadow duration-300 bg-white ${
         scrolled ? "shadow-md" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+          {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo.png"
@@ -41,6 +44,7 @@ export default function Navbar() {
             />
           </Link>
 
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -51,6 +55,21 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Carrito */}
+            <button
+              onClick={openCart}
+              className="relative p-2 text-[#1B3A7A] hover:text-[#3ED9C4] transition-colors"
+              aria-label="Abrir carrito"
+            >
+              <ShoppingCart size={22} />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#3ED9C4] text-[#1B3A7A] text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {totalItems > 9 ? "9+" : totalItems}
+                </span>
+              )}
+            </button>
+
             <a
               href="https://wa.me/573203358826"
               target="_blank"
@@ -62,15 +81,31 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button
-            className="md:hidden p-2 text-[#1B3A7A]"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile: carrito + hamburguesa */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={openCart}
+              className="relative p-2 text-[#1B3A7A]"
+              aria-label="Abrir carrito"
+            >
+              <ShoppingCart size={22} />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#3ED9C4] text-[#1B3A7A] text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {totalItems > 9 ? "9+" : totalItems}
+                </span>
+              )}
+            </button>
+            <button
+              className="p-2 text-[#1B3A7A]"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
+        {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden pb-4 border-t border-gray-100 pt-2">
             {navLinks.map((link) => (

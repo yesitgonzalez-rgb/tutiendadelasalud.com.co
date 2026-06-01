@@ -3,6 +3,8 @@ import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CartDrawer from "@/components/CartDrawer";
+import { CartProvider } from "@/context/CartContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -47,9 +49,12 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${plusJakarta.variable} font-sans antialiased`}
       >
-        <Navbar />
-        <main>{children}</main>
-        <WhatsAppButton />
+        <CartProvider>
+          <Navbar />
+          <CartDrawer />
+          <main>{children}</main>
+          <WhatsAppButton />
+        </CartProvider>
       </body>
     </html>
   );

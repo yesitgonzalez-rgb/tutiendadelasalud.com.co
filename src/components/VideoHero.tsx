@@ -1,15 +1,23 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { MessageCircle, ChevronDown } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle, ChevronDown, Volume2, VolumeX } from "lucide-react";
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(() => {});
     }
   }, []);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -25,6 +33,7 @@ export default function VideoHero() {
       />
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B3A7A]/80 via-[#1B3A7A]/60 to-[#0d2a5e]/70" />
 
+      {/* Contenido central */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <span className="inline-block bg-[#3ED9C4] text-[#1B3A7A] text-xs font-bold px-4 py-1.5 rounded-full mb-8 tracking-widest uppercase">
           Envíos a todo Colombia
@@ -44,10 +53,10 @@ export default function VideoHero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#productos"
+            href="#tienda"
             className="bg-white text-[#1B3A7A] px-8 py-4 rounded-full font-bold text-base hover:bg-[#3ED9C4] hover:text-white transition-all duration-300 shadow-lg"
           >
-            Ver Productos
+            Descubrir productos
           </a>
           <a
             href="https://wa.me/573203358826"
@@ -61,6 +70,26 @@ export default function VideoHero() {
         </div>
       </div>
 
+      {/* Botón activar/silenciar sonido */}
+      <button
+        onClick={toggleMute}
+        aria-label={isMuted ? "Activar sonido" : "Silenciar"}
+        className="absolute bottom-8 right-6 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-white/20 transition-all duration-300"
+      >
+        {isMuted ? (
+          <>
+            <VolumeX size={15} />
+            Activar sonido
+          </>
+        ) : (
+          <>
+            <Volume2 size={15} />
+            Silenciar
+          </>
+        )}
+      </button>
+
+      {/* Flecha scroll */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
         <ChevronDown size={32} />
       </div>

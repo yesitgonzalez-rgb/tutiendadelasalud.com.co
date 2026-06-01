@@ -40,9 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Videos grandes (>50 MB) — guardados localmente, no en GitHub
-# Los videos pequeños de personajes SÍ se suben (son <4 MB cada uno)
-public/videos/hero-bg.mp4
-public/videos/video-1.mp4
-public/videos/video-2.mp4
-public/videos/video-3.mp4
+# Videos — guardados localmente, no en GitHub/Vercel
+public/videos/
+
+.vercel
