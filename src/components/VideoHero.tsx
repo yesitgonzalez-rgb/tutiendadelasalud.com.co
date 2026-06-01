@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { MessageCircle, ChevronDown, Volume2, VolumeX } from "lucide-react";
 
 export default function VideoHero() {
@@ -21,9 +22,23 @@ export default function VideoHero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+      {/* Móvil: imagen estática con priority → LCP ~0.5s */}
+      <div className="md:hidden absolute inset-0">
+        <Image
+          src="/images/celion-boost.jpeg"
+          alt="Tu Tienda de la Salud — Productos naturales para tu bienestar"
+          fill
+          priority
+          className="object-cover brightness-75"
+          sizes="100vw"
+        />
+      </div>
+
+      {/* Escritorio: video en loop */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover"
         src="/videos/hero-bg.mp4"
         poster="/images/celion-boost.jpeg"
         autoPlay
@@ -33,6 +48,7 @@ export default function VideoHero() {
         preload="none"
         style={{ filter: "brightness(0.7)" }}
       />
+
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B3A7A]/80 via-[#1B3A7A]/60 to-[#0d2a5e]/70" />
 
       {/* Contenido central */}
@@ -72,11 +88,11 @@ export default function VideoHero() {
         </div>
       </div>
 
-      {/* Botón activar/silenciar sonido */}
+      {/* Botón silenciar — solo visible en escritorio donde hay video */}
       <button
         onClick={toggleMute}
         aria-label={isMuted ? "Activar sonido" : "Silenciar"}
-        className="absolute bottom-8 right-6 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-white/20 transition-all duration-300"
+        className="hidden md:flex absolute bottom-8 right-6 z-20 items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-white/20 transition-all duration-300"
       >
         {isMuted ? (
           <>
