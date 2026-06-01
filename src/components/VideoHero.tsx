@@ -25,10 +25,12 @@ export default function VideoHero() {
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         src="/videos/hero-bg.mp4"
+        poster="/images/celion-boost.jpeg"
         autoPlay
         muted
         loop
         playsInline
+        preload="none"
         style={{ filter: "brightness(0.7)" }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B3A7A]/80 via-[#1B3A7A]/60 to-[#0d2a5e]/70" />
