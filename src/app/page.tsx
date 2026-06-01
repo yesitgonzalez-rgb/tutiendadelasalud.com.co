@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroSlider from "@/components/HeroSlider";
+import VideoHero from "@/components/VideoHero";
 import ProductCard from "@/components/ProductCard";
 import VideoCarousel from "@/components/VideoCarousel";
 import CelionCard from "@/components/CelionCard";
@@ -629,7 +629,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <HeroSlider />
+      <VideoHero />
 
       {/* CATEGORÍAS */}
       <section id="tienda" className="py-24 bg-white">
