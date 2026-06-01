@@ -594,10 +594,8 @@ const familiaItems = [
     gradient: "from-emerald-50 to-teal-100",
     accent: "#14b8a6",
     products: [
-      { name: "Reishi Gano (RG)", benefit: "Articulaciones y circulación" },
-      { name: "Ganocelium (GL)", benefit: "Resistencia y defensas naturales" },
-      { name: "Spirulina", benefit: "Nutrición completa y energía" },
-      { name: "Morinzhi", benefit: "Equilibrio digestivo y detox" },
+      { name: "Calcio", benefit: "Fortaleza ósea y articulaciones · $135.000 COP" },
+      { name: "Probióticos", benefit: "Caja x 30 sobres · Flora intestinal · $95.000 COP" },
     ],
     waMsg: "Hola Yesit! Busco productos de bienestar para adultos mayores. ¿Qué me recomiendas? 🌱",
   },
@@ -777,17 +775,22 @@ export default function Home() {
                   <h3 className="font-display font-bold text-white text-2xl md:text-3xl mb-3">
                     Cellagen GLOW
                   </h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-5">
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">
                     Colágeno premium con 3 péptidos bioactivos de patente clínica. Piel, articulaciones y vitalidad.
                   </p>
+                  <div className="flex items-center gap-2 mb-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 w-fit">
+                    <span className="text-[#F26010] font-extrabold text-sm">✦</span>
+                    <span className="text-white font-extrabold text-sm">Desde $280.000</span>
+                    <span className="text-white/60 text-xs">COP</span>
+                  </div>
                   <a
-                    href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el Cellagen GLOW de Celion. ¿Cuánto vale? 🌿")}`}
+                    href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el Cellagen GLOW de Celion. ¿Lo puedo pedir? 🌿")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#F26010] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#d9530d] transition-colors"
                   >
                     <MessageCircle size={15} />
-                    Consultar precio
+                    Lo quiero
                   </a>
                 </div>
               </div>
