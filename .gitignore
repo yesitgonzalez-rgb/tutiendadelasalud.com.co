@@ -40,7 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Videos — guardados localmente, no en GitHub/Vercel
-public/videos/
+# Videos grandes — no en GitHub/Vercel
+public/videos/*.mp4
+# Excepción: el hero video liviano SÍ se sube
+!public/videos/hero-bg.mp4
 
 .vercel
