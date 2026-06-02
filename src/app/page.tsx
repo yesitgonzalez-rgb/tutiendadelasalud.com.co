@@ -21,6 +21,9 @@ import {
   Gift,
   TrendingUp,
   Award,
+  Facebook,
+  Instagram,
+  Youtube,
 } from "lucide-react";
 
 // ─── Datos ────────────────────────────────────────────────────────────────────
@@ -1768,6 +1771,55 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* Redes Sociales */}
+          <div className="border-t border-white/10 pt-8 pb-6 flex flex-col items-center gap-4">
+            <p className="text-white/40 text-xs uppercase tracking-widest font-semibold">Síguenos</p>
+            <div className="flex items-center gap-3">
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/profile.php?id=61590177674657"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de Tu Tienda de la Salud"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-[#1877F2] hover:text-white transition-all duration-200"
+              >
+                <Facebook size={18} />
+              </a>
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/tutiendadelasalud.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Tu Tienda de la Salud"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-gradient-to-br hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] hover:text-white transition-all duration-200"
+              >
+                <Instagram size={18} />
+              </a>
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/tiktokstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok de Tu Tienda de la Salud"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-black hover:text-white transition-all duration-200"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+                </svg>
+              </a>
+              {/* YouTube */}
+              <a
+                href="https://www.youtube.com/@tutiendadelasalud-p2h"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube de Tu Tienda de la Salud"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-[#FF0000] hover:text-white transition-all duration-200"
+              >
+                <Youtube size={18} />
+              </a>
+            </div>
+          </div>
+
           <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/40 text-xs">
               © {new Date().getFullYear()} Tu Tienda de la Salud · Bienestar
