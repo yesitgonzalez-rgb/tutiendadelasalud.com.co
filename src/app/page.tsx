@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import VideoHero from "@/components/VideoHero";
 import ProductCard from "@/components/ProductCard";
 import VideoCarousel from "@/components/VideoCarousel";
@@ -1783,6 +1784,11 @@ export default function Home() {
                 Tododeia
               </a>
             </p>
+            <div className="mt-4 flex justify-center gap-6">
+              <Link href="/privacidad" className="text-white/40 hover:text-white/70 text-xs transition-colors">
+                Política de Privacidad
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
