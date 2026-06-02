@@ -575,7 +575,7 @@ const familiaItems = [
     title: "Mujeres",
     badge: "Equilibrio & Bienestar",
     desc: "Equilibrio, vitalidad y cuidado integral para sentirte bien por dentro y por fuera.",
-    imgs: ["/images/familia-mujeres-1.png", "/images/familia-mujeres-2.png"],
+    img: "/images/adultos-colageno.png",
     gradient: "from-rose-50 to-pink-100",
     accent: "#ec4899",
     products: [
@@ -591,12 +591,12 @@ const familiaItems = [
     title: "Adultos mayores",
     badge: "Movilidad & Salud",
     desc: "Bienestar, movilidad y nutrición pensada para una vida activa y saludable.",
-    imgs: ["/images/familia-mayores-1.png", "/images/familia-mayores-2.png", "/images/familia-mayores-3.png"],
+    img: "/images/adultos-calcio.png",
     gradient: "from-emerald-50 to-teal-100",
     accent: "#14b8a6",
     products: [
-      { name: "Calcio", benefit: "Fortaleza ósea y articulaciones · $135.000 COP" },
-      { name: "Probióticos", benefit: "Caja x 30 sobres · Flora intestinal · $95.000 COP" },
+      { name: "Calcio", benefit: "Huesos y articulaciones fuertes · $135.000" },
+      { name: "Probióticos", benefit: "Flora intestinal · Caja x30 · $95.000" },
     ],
     waMsg: "Hola Yesit! Busco productos de bienestar para adultos mayores. ¿Qué me recomiendas? 🌱",
   },
@@ -1276,6 +1276,113 @@ export default function Home() {
               ¿No sabes cuál es el tuyo? Escríbeme y te ayudo
             </a>
           </div>
+
+          {/* ── FORTALECER ── */}
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <span className="text-[#3ED9C4] font-semibold text-sm uppercase tracking-widest">
+                Nutrición esencial
+              </span>
+              <h2 className="font-display font-bold text-[#1B3A7A] text-4xl md:text-5xl mt-3 mb-4">
+                Fortalece tu cuerpo.
+              </h2>
+              <p className="text-[#5A6478] max-w-xl mx-auto text-lg leading-relaxed">
+                Suplementos clave para mantener la salud ósea, digestiva y cardiovascular en cada etapa de la vida.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+              {/* Probióticos */}
+              <div className="group bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.07)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 flex flex-col">
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/images/adultos-probioticos.png"
+                    alt="Probióticos — Tu Tienda de la Salud"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#14b8a6] mb-1">Flora intestinal</span>
+                  <h3 className="font-bold text-[#1B3A7A] text-sm leading-tight mb-1">Probióticos</h3>
+                  <p className="text-[#6B7280] text-xs leading-relaxed flex-1">Equilibra tu microbiota. Caja x 30 sobres. Bienestar digestivo desde adentro.</p>
+                  <p className="text-[#1B3A7A] font-extrabold text-sm mt-2 mb-3">$95.000 COP</p>
+                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesan los Probióticos (Caja x30). ¿Está disponible? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2 rounded-2xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200">
+                    <MessageCircle size={11} /> Pedir
+                  </a>
+                </div>
+              </div>
+
+              {/* Calcio Adultos */}
+              <div className="group bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.07)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 flex flex-col">
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/images/adultos-calcio.png"
+                    alt="Calcio para Adultos — Tu Tienda de la Salud"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#14b8a6] mb-1">Salud ósea</span>
+                  <h3 className="font-bold text-[#1B3A7A] text-sm leading-tight mb-1">Calcio para Adultos</h3>
+                  <p className="text-[#6B7280] text-xs leading-relaxed flex-1">Fortaleza ósea y dental. Vitaminas y minerales esenciales. Alta absorción.</p>
+                  <p className="text-[#1B3A7A] font-extrabold text-sm mt-2 mb-3">$135.000 COP</p>
+                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el Calcio para Adultos. ¿Está disponible? 🦴")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2 rounded-2xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200">
+                    <MessageCircle size={11} /> Pedir
+                  </a>
+                </div>
+              </div>
+
+              {/* BIOMEGA */}
+              <div className="group bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.07)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 flex flex-col">
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/images/adultos-biomega.png"
+                    alt="BIOMEGA Omega-3 — Tu Tienda de la Salud"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#14b8a6] mb-1">Omega-3</span>
+                  <h3 className="font-bold text-[#1B3A7A] text-sm leading-tight mb-1">BIOMEGA</h3>
+                  <p className="text-[#6B7280] text-xs leading-relaxed flex-1">Aceite de pescado 2000 mg. DHA y EPA. Apoya cerebro, corazón e inmunidad. 56 cáp.</p>
+                  <p className="text-[#1B3A7A] font-extrabold text-sm mt-2 mb-3">Consultar</p>
+                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el BIOMEGA Omega-3. ¿Precio y disponibilidad? 🐟")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2 rounded-2xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200">
+                    <MessageCircle size={11} /> Consultar
+                  </a>
+                </div>
+              </div>
+
+              {/* E-Omega 3 Atomy */}
+              <div className="group bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.07)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 flex flex-col">
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/images/adultos-eomega.png"
+                    alt="E-Omega 3 Atomy — Tu Tienda de la Salud"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#14b8a6] mb-1">Omega-3 Premium</span>
+                  <h3 className="font-bold text-[#1B3A7A] text-sm leading-tight mb-1">E-Omega 3 Atomy</h3>
+                  <p className="text-[#6B7280] text-xs leading-relaxed flex-1">Alaska EPA y DHA con Vitamina E. Salud cardiovascular, cerebro y circulación. 180 cáp.</p>
+                  <p className="text-[#1B3A7A] font-extrabold text-sm mt-2 mb-3">Consultar</p>
+                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el E-Omega 3 de Atomy. ¿Precio y disponibilidad? 🐟")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2 rounded-2xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200">
+                    <MessageCircle size={11} /> Consultar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ── FIN FORTALECER ── */}
+
         </div>
       </section>
 
