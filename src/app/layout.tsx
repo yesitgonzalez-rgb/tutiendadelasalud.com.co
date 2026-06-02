@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CartDrawer from "@/components/CartDrawer";
 import { CartProvider } from "@/context/CartContext";
+import PixelEvents from "@/components/PixelEvents";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
           <CartDrawer />
           <main>{children}</main>
           <WhatsAppButton />
+          <PixelEvents />
         </CartProvider>
 
         {/* Meta Pixel — Tu Tienda de la Salud */}
