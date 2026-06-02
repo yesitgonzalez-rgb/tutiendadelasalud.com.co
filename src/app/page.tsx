@@ -547,7 +547,7 @@ const familiaItems = [
     gradient: "from-sky-50 to-blue-100",
     accent: "#0ea5e9",
     products: [
-      { name: "Calcio Nutritivo", benefit: "Desarrollo y crecimiento" },
+      { name: "Calcio Nutritivo", benefit: "Desarrollo y crecimiento · $135.000" },
       { name: "Cepillo Antibacteriano", benefit: "Dientes más sanos y fuertes" },
       { name: "Spirulina", benefit: "Más defensas naturales" },
       { name: "Cocozhi", benefit: "Desayuno nutritivo" },
@@ -1220,7 +1220,7 @@ export default function Home() {
                       src={item.img}
                       alt={item.title}
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                       sizes="(max-width: 640px) 100vw, 25vw"
                     />
                   ) : (
@@ -1293,7 +1293,7 @@ export default function Home() {
             </div>
 
             {/* Grid 5 productos */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 max-w-5xl mx-auto">
 
               {/* 1 — USANA Probióticos */}
               <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_2px_16px_rgba(27,58,122,0.08)] hover:shadow-[0_12px_40px_rgba(27,58,122,0.16)] hover:-translate-y-2 transition-all duration-300">
@@ -1303,7 +1303,7 @@ export default function Home() {
                     <span className="bg-[#14b8a6] text-white text-[9px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full shadow">Flora intestinal</span>
                   </div>
                 </div>
-                <div className="p-4 flex flex-col flex-1">
+                <div className="p-3 flex flex-col flex-1">
                   <h3 className="font-display font-bold text-[#1B3A7A] text-sm leading-tight mb-1.5">USANA Probióticos</h3>
                   <p className="text-[#6B7280] text-[11px] leading-relaxed flex-1">Normaliza la flora intestinal. 12 mil millones de bacterias por dosis. Bienestar digestivo real.</p>
                   <div className="mt-3 mb-3 flex items-center gap-2">
@@ -1324,7 +1324,7 @@ export default function Home() {
                     <span className="bg-[#1B3A7A] text-white text-[9px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full shadow">Salud ósea</span>
                   </div>
                 </div>
-                <div className="p-4 flex flex-col flex-1">
+                <div className="p-3 flex flex-col flex-1">
                   <h3 className="font-display font-bold text-[#1B3A7A] text-sm leading-tight mb-1.5">Calcio para Adultos</h3>
                   <p className="text-[#6B7280] text-[11px] leading-relaxed flex-1">Fortaleza ósea y dental. Vitaminas y minerales esenciales. Alta absorción. Articulaciones activas.</p>
                   <div className="mt-3 mb-3 flex items-center gap-2">
@@ -1345,7 +1345,7 @@ export default function Home() {
                     <span className="bg-[#f97316] text-white text-[9px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full shadow">Omega-3</span>
                   </div>
                 </div>
-                <div className="p-4 flex flex-col flex-1">
+                <div className="p-3 flex flex-col flex-1">
                   <h3 className="font-display font-bold text-[#1B3A7A] text-sm leading-tight mb-1.5">BIOMEGA</h3>
                   <p className="text-[#6B7280] text-[11px] leading-relaxed flex-1">DHA 500 mg · EPA 600 mg · Vitamina D. Corazón, cerebro e inmunidad. 56 cápsulas.</p>
                   <div className="mt-3 mb-3 flex items-center gap-2">
@@ -1366,7 +1366,7 @@ export default function Home() {
                     <span className="bg-[#f97316] text-white text-[9px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full shadow">Omega-3 Premium</span>
                   </div>
                 </div>
-                <div className="p-4 flex flex-col flex-1">
+                <div className="p-3 flex flex-col flex-1">
                   <h3 className="font-display font-bold text-[#1B3A7A] text-sm leading-tight mb-1.5">E-Omega 3 Atomy</h3>
                   <p className="text-[#6B7280] text-[11px] leading-relaxed flex-1">Alaska EPA y DHA + Vitamina E. Cardiovascular, cerebro y circulación. 180 cápsulas.</p>
                   <div className="mt-3 mb-3 flex items-center gap-2">
@@ -1379,22 +1379,22 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 5 — MULTYDRINK */}
-              <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_2px_16px_rgba(27,58,122,0.08)] hover:shadow-[0_12px_40px_rgba(27,58,122,0.16)] hover:-translate-y-2 transition-all duration-300 col-span-2 md:col-span-1">
+              {/* 5 — Probióticos caja azul */}
+              <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_2px_16px_rgba(27,58,122,0.08)] hover:shadow-[0_12px_40px_rgba(27,58,122,0.16)] hover:-translate-y-2 transition-all duration-300">
                 <div className="relative w-full aspect-square overflow-hidden bg-gray-50">
-                  <Image src="/images/adultos-multydrink.png" alt="MULTYDRINK bebida antioxidante" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:640px) 100vw, 20vw" />
+                  <Image src="/images/adultos-probioticos.png" alt="Probióticos caja azul" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:640px) 50vw, 20vw" />
                   <div className="absolute top-2.5 left-2.5">
-                    <span className="bg-[#3ED9C4] text-[#1B3A7A] text-[9px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full shadow">Antioxidante</span>
+                    <span className="bg-[#14b8a6] text-white text-[9px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full shadow">Flora intestinal</span>
                   </div>
                 </div>
-                <div className="p-4 flex flex-col flex-1">
-                  <h3 className="font-display font-bold text-[#1B3A7A] text-sm leading-tight mb-1.5">MULTYDRINK</h3>
-                  <p className="text-[#6B7280] text-[11px] leading-relaxed flex-1">Bebida antioxidante premium. Nutrición inteligente, energía natural y vitalidad integral cada día.</p>
+                <div className="p-3 flex flex-col flex-1">
+                  <h3 className="font-display font-bold text-[#1B3A7A] text-sm leading-tight mb-1.5">Probióticos</h3>
+                  <p className="text-[#6B7280] text-[11px] leading-relaxed flex-1">Equilibrio intestinal y defensas activas. Caja x 30 sobres. Un sobre al día, para toda la familia.</p>
                   <div className="mt-3 mb-3 flex items-center gap-2">
-                    <span className="text-[#1B3A7A] font-extrabold text-base">$125.000</span>
-                    <span className="text-[10px] text-[#94a3b8] font-medium">COP</span>
+                    <span className="text-[#1B3A7A] font-extrabold text-base">$100.000</span>
+                    <span className="text-[10px] text-[#94a3b8] font-medium">caja x 30</span>
                   </div>
-                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el MULTYDRINK. ¿Disponibilidad? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#3ED9C4] text-[#1B3A7A] py-2.5 rounded-xl font-bold text-xs hover:bg-[#1B3A7A] hover:text-white transition-all duration-200 shadow-sm">
+                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesan los Probióticos (caja azul x30 sobres). ¿Está disponible? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm">
                     <MessageCircle size={12} /> Pedir ahora
                   </a>
                 </div>
