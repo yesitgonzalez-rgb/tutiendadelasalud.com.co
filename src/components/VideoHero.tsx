@@ -48,8 +48,8 @@ export default function VideoHero() {
           </span>
         </h1>
         <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Productos orgánicos naturales para tu bienestar integral. Cuida tu
-          salud física, mental y fortalece tu sistema inmune.
+          Tu tienda naturista online en Colombia. Productos naturales con ganoderma,
+          colágeno y suplementos para tu bienestar integral. Envíos a todo el país.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

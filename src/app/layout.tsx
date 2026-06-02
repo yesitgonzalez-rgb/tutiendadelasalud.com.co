@@ -23,15 +23,15 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tu Tienda de la Salud | Bienestar Integral",
+  title: "Tu Tienda de la Salud | Productos Naturales Colombia",
   description:
-    "Distribuidores de productos orgánicos naturales. Cuida tu salud física, mental e inmunológica. Envíos a todo Colombia.",
+    "Tienda naturista online en Colombia. Productos naturales, ganoderma, colágeno y suplementos de bienestar integral. Cuida tu salud física, mental e inmunológica. Envíos a todo Colombia.",
   keywords:
-    "productos orgánicos, naturales, salud, bienestar integral, suplementos, nutrición celular, bebidas saludables, Colombia",
+    "productos naturales Colombia, tienda naturista online Colombia, ganoderma Colombia, suplementos naturales Colombia, colágeno hidrolizado Colombia, bebidas saludables Colombia, bienestar integral, nutrición celular, productos orgánicos Colombia",
   openGraph: {
-    title: "Tu Tienda de la Salud | Bienestar Integral",
+    title: "Tu Tienda de la Salud | Productos Naturales Colombia",
     description:
-      "Productos orgánicos naturales para tu bienestar integral. Envíos a todo Colombia.",
+      "Tienda naturista online en Colombia. Productos naturales, ganoderma y suplementos de bienestar. Envíos a todo Colombia.",
     url: "https://tutiendadelasalud.com.co",
     siteName: "Tu Tienda de la Salud",
     type: "website",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tu Tienda de la Salud | Bienestar Integral",
+    title: "Tu Tienda de la Salud | Productos Naturales Colombia",
     description:
-      "Productos orgánicos naturales para tu bienestar integral. Envíos a todo Colombia.",
+      "Tienda naturista online en Colombia. Productos naturales, ganoderma y suplementos de bienestar. Envíos a todo Colombia.",
   },
   icons: {
     icon: "/images/favicon.png",
