@@ -32,8 +32,16 @@ export const metadata: Metadata = {
     title: "Tu Tienda de la Salud | Bienestar Integral",
     description:
       "Productos orgánicos naturales para tu bienestar integral. Envíos a todo Colombia.",
+    url: "https://tutiendadelasalud.com.co",
+    siteName: "Tu Tienda de la Salud",
     type: "website",
     locale: "es_CO",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tu Tienda de la Salud | Bienestar Integral",
+    description:
+      "Productos orgánicos naturales para tu bienestar integral. Envíos a todo Colombia.",
   },
   icons: {
     icon: "/images/favicon.png",
