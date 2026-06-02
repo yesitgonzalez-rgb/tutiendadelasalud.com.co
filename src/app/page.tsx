@@ -1220,7 +1220,7 @@ export default function Home() {
                       src={item.img}
                       alt={item.title}
                       fill
-                      className="object-cover object-top"
+                      className="object-contain"
                       sizes="(max-width: 640px) 100vw, 25vw"
                     />
                   ) : (
@@ -1292,8 +1292,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Grid 5 productos */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 max-w-5xl mx-auto">
+            {/* Grid 6 productos */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-6xl mx-auto">
 
               {/* 1 — USANA Probióticos */}
               <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_2px_16px_rgba(27,58,122,0.08)] hover:shadow-[0_12px_40px_rgba(27,58,122,0.16)] hover:-translate-y-2 transition-all duration-300">
@@ -1379,7 +1379,28 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 5 — Probióticos caja azul */}
+              {/* 5 — MULTYDRINK */}
+              <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_2px_16px_rgba(27,58,122,0.08)] hover:shadow-[0_12px_40px_rgba(27,58,122,0.16)] hover:-translate-y-2 transition-all duration-300">
+                <div className="relative w-full aspect-square overflow-hidden bg-gray-50">
+                  <Image src="/images/adultos-multydrink.png" alt="MULTYDRINK bebida antioxidante" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:640px) 50vw, 17vw" />
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className="bg-[#3ED9C4] text-[#1B3A7A] text-[9px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full shadow">Antioxidante</span>
+                  </div>
+                </div>
+                <div className="p-3 flex flex-col flex-1">
+                  <h3 className="font-display font-bold text-[#1B3A7A] text-sm leading-tight mb-1.5">MULTYDRINK</h3>
+                  <p className="text-[#6B7280] text-[11px] leading-relaxed flex-1">Bebida antioxidante premium. Energía natural y vitalidad. Caja x 21 sobres.</p>
+                  <div className="mt-3 mb-3 flex items-center gap-2">
+                    <span className="text-[#1B3A7A] font-extrabold text-base">$125.000</span>
+                    <span className="text-[10px] text-[#94a3b8] font-medium">caja x 21</span>
+                  </div>
+                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el MULTYDRINK (caja x 21 sobres). ¿Disponibilidad? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#3ED9C4] text-[#1B3A7A] py-2.5 rounded-xl font-bold text-xs hover:bg-[#1B3A7A] hover:text-white transition-all duration-200 shadow-sm">
+                    <MessageCircle size={12} /> Pedir ahora
+                  </a>
+                </div>
+              </div>
+
+              {/* 6 — Probióticos caja azul */}
               <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-[0_2px_16px_rgba(27,58,122,0.08)] hover:shadow-[0_12px_40px_rgba(27,58,122,0.16)] hover:-translate-y-2 transition-all duration-300">
                 <div className="relative w-full aspect-square overflow-hidden bg-gray-50">
                   <Image src="/images/adultos-probioticos.png" alt="Probióticos caja azul" fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:640px) 50vw, 20vw" />
