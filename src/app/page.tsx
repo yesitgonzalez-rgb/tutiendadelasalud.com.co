@@ -440,6 +440,14 @@ const productosEstrella = [
     img: "/images/celion-colageno-glow.png",
     badge: "Nuevo",
   },
+  // 🌱 RENOVACIÓN CELULAR
+  {
+    name: "StemRenu",
+    category: "🌱 Renovación Celular",
+    desc: "Rejuvenecer y renovar desde adentro. Bioactivos supercargados que apoyan la señalización celular saludable.",
+    img: "/images/stemrenu-poster.png",
+    badge: "Premium",
+  },
   // 🧠 COGNITIVO & CELULAR
   {
     name: "NEUROcell",
