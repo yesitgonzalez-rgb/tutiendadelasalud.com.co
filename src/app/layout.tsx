@@ -23,11 +23,15 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tutiendadelasalud.com.co"),
   title: "Tu Tienda de la Salud | Productos Naturales Colombia",
   description:
     "Tienda naturista online en Colombia. Productos naturales, ganoderma, colágeno y suplementos de bienestar integral. Cuida tu salud física, mental e inmunológica. Envíos a todo Colombia.",
   keywords:
-    "productos naturales Colombia, tienda naturista online Colombia, ganoderma Colombia, suplementos naturales Colombia, colágeno hidrolizado Colombia, bebidas saludables Colombia, bienestar integral, nutrición celular, productos orgánicos Colombia",
+    "productos naturales Colombia, tienda naturista online Colombia, tienda de la salud Colombia, ganoderma Colombia, ganoderma Bogotá, suplementos naturales Colombia, colágeno hidrolizado Colombia, colágeno Bogotá, bebidas saludables Colombia, bienestar integral, nutrición celular, productos orgánicos Colombia, NEUROcell Colombia, Colágeno Glow Colombia, StemRenu Colombia, celion Colombia, café con ganoderma Colombia, suplementos bienestar Bogotá, probióticos Colombia, productos de bienestar natural, donde comprar suplementos naturales en Colombia",
+  alternates: {
+    canonical: "https://tutiendadelasalud.com.co",
+  },
   openGraph: {
     title: "Tu Tienda de la Salud | Productos Naturales Colombia",
     description:
@@ -72,6 +76,57 @@ export default function RootLayout({
           <WhatsAppButton />
           <PixelEvents />
         </CartProvider>
+
+        {/* JSON-LD — Datos estructurados para Google */}
+        <Script
+          id="json-ld-local-business"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Store",
+              name: "Tu Tienda de la Salud",
+              url: "https://tutiendadelasalud.com.co",
+              logo: "https://tutiendadelasalud.com.co/images/favicon.png",
+              description:
+                "Tienda naturista online en Colombia. Productos naturales, ganoderma, colágeno y suplementos de bienestar integral. Envíos a todo Colombia.",
+              telephone: "+573203358826",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Bogotá",
+                addressRegion: "Cundinamarca",
+                addressCountry: "CO",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 4.711,
+                longitude: -74.0721,
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",
+                ],
+                opens: "08:00",
+                closes: "18:00",
+              },
+              sameAs: [
+                "https://www.facebook.com/profile.php?id=61586467695359",
+              ],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Productos Naturales y Suplementos",
+                itemListElement: [
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "NEUROcell", description: "Suplemento para rendimiento cognitivo, claridad mental y concentración." } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Colágeno Glow", description: "Colágeno hidrolizado de Celion para piel luminosa y firme." } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "StemRenu", description: "Suplemento de renovación celular con bioactivos supercargados." } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Lingzhi Black Coffee", description: "Café negro con Ganoderma Lucidum para energía y bienestar." } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Línea Ganoterapia", description: "Reishi Gano y Ganocelium para inmunidad y vitalidad celular." } },
+                ],
+              },
+            }),
+          }}
+        />
 
         {/* Meta Pixel — Tu Tienda de la Salud */}
         <Script id="meta-pixel" strategy="afterInteractive">
