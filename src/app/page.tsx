@@ -3,6 +3,7 @@ import Link from "next/link";
 import VideoHero from "@/components/VideoHero";
 import ProductCard from "@/components/ProductCard";
 import VideoCarousel from "@/components/VideoCarousel";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import CelionCard from "@/components/CelionCard";
 import {
   Leaf,
@@ -2004,6 +2005,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* ── WIDGET WHATSAPP FLOTANTE ── */}
+      <WhatsAppWidget />
     </>
   );
 }
