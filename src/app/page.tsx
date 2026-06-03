@@ -432,28 +432,21 @@ const productosEstrella = [
     img: "/images/ganoterapia-banner.png",
     badge: "Premium",
   },
+  // 🌟 BELLEZA & PIEL
   {
-    name: "Morinzhi",
-    category: "💧 Detox Natural",
-    desc: "Bebida botánica de Noni y Roselle. Sin químicos añadidos. Depura, fortalece y nutre desde adentro.",
-    img: "/images/morinzhi-premium.png",
-    badge: "Bestseller",
+    name: "Colágeno Glow",
+    category: "🌟 Belleza & Piel",
+    desc: "Tu piel no necesita filtros, necesita ciencia. Colágeno Glow de Celion: luminosidad, firmeza y juventud real.",
+    img: "/images/celion-colageno-glow.png",
+    badge: "Nuevo",
   },
   // 🧠 COGNITIVO & CELULAR
   {
     name: "NEUROcell",
     category: "🧠 Rendimiento Cognitivo",
     desc: "Potencia tu cerebro con claridad mental, concentración y memoria. Fórmula avanzada Celion.",
-    img: "/images/celion-neurocell-poster.png",
+    img: "/images/celion-neurocell-nuevo.png",
     badge: "Premium",
-  },
-  // 🦷 SALUD ORAL
-  {
-    name: "Ganozhi Toothpaste",
-    category: "🦷 Salud Oral",
-    desc: "Pasta dental con Ganoderma. Protección natural contra caries, encías sanas, aliento fresco.",
-    img: "/images/oral-ganozhi.png",
-    badge: "Bestseller",
   },
 ];
 
