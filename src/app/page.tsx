@@ -634,6 +634,95 @@ export default function Home() {
       {/* HERO */}
       <VideoHero />
 
+      {/* ── BANNER MUNDIAL 2026 ── */}
+      <section className="relative overflow-hidden bg-[#1B3A7A]" aria-label="Promoción Mundial 2026">
+        {/* Ticker superior */}
+        <div className="bg-[#FFD100] py-1.5 overflow-hidden">
+          <div className="flex animate-[marquee_18s_linear_infinite] whitespace-nowrap w-max">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <span key={i} className="text-[#1B3A7A] font-extrabold text-xs uppercase tracking-widest px-8">
+                ⚽ ¡VAMOS COLOMBIA! &nbsp;·&nbsp; MUNDIAL 2026 &nbsp;·&nbsp; 🇨🇴 ¡ARRIBA LA TRI! &nbsp;·&nbsp; 🏆 FIFA WORLD CUP USA·CANADA·MÉXICO &nbsp;·&nbsp;
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Franjas diagonales decorativas */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -right-20 top-0 bottom-0 w-64 bg-[#FFD100]/10 skew-x-[-8deg]" />
+          <div className="absolute -right-4 top-0 bottom-0 w-32 bg-[#CE1126]/10 skew-x-[-8deg]" />
+          <div className="absolute right-48 top-0 bottom-0 w-16 bg-[#FFD100]/8 skew-x-[-8deg]" />
+        </div>
+
+        {/* Contenido principal */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+
+            {/* Izquierda — Pelota + Bandera */}
+            <div className="flex items-center gap-4 flex-shrink-0">
+              <div className="relative">
+                <span className="text-7xl sm:text-8xl leading-none select-none" role="img" aria-label="balón de fútbol">⚽</span>
+                <span className="absolute -top-2 -right-2 text-3xl animate-bounce" role="img" aria-label="bandera de Colombia">🇨🇴</span>
+              </div>
+              <div className="hidden sm:block">
+                <p className="text-[#FFD100] font-extrabold text-sm uppercase tracking-widest leading-tight">Mundial 2026</p>
+                <p className="text-white font-bold text-lg leading-tight">¡Celebra con salud!</p>
+              </div>
+            </div>
+
+            {/* Centro — Oferta */}
+            <div className="text-center flex-1">
+              <p className="text-[#3ED9C4] font-bold text-xs sm:text-sm uppercase tracking-[0.2em] mb-1">
+                🌿 Promoción especial Mundial
+              </p>
+              <h2 className="text-white font-extrabold text-4xl sm:text-5xl leading-tight tracking-tight">
+                ENVÍO <span className="text-[#FFD100]">GRATIS</span>
+              </h2>
+              <p className="text-white/90 font-bold text-lg sm:text-xl mt-1">
+                en Bogotá 🛵 por compras en combo
+              </p>
+              <p className="text-white/60 text-xs mt-2">
+                NEUROcell · Colágeno Glow · StemRenu · Probióticos · Cafés Lingzhi
+              </p>
+            </div>
+
+            {/* Derecha — CTA */}
+            <div className="flex flex-col items-center gap-3 flex-shrink-0">
+              <div className="flex items-center gap-1">
+                {["🟡","🔵","🔴"].map((c,i) => (
+                  <span key={i} className="text-xl">{c}</span>
+                ))}
+              </div>
+              <a
+                href="https://wa.me/573203358826?text=Hola%20Yesit!%20Vi%20la%20promo%20del%20Mundial%20%F0%9F%8F%86%20Quiero%20armar%20un%20combo%20con%20env%C3%ADo%20gratis%20en%20Bogot%C3%A1%20%F0%9F%87%A8%F0%9F%87%B4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-[#FFD100] text-[#1B3A7A] font-extrabold text-sm px-6 py-3 rounded-full hover:bg-white transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap"
+              >
+                ⚽ Pedir mi combo
+              </a>
+              <p className="text-white/50 text-[10px] text-center">
+                Solo Bogotá · Válido durante el Mundial
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Borde inferior en colores Colombia */}
+        <div className="flex h-1">
+          <div className="flex-1 bg-[#FFD100]" />
+          <div className="flex-1 bg-[#1B3A7A]" />
+          <div className="flex-1 bg-[#CE1126]" />
+        </div>
+      </section>
+
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+
       {/* CATEGORÍAS */}
       <section id="tienda" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
