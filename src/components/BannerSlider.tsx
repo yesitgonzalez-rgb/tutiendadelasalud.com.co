@@ -139,6 +139,24 @@ export default function BannerSlider() {
   return (
     <section className="relative w-full overflow-hidden bg-[#1B3A7A]" aria-label="Banner promocional">
 
+      {/* ── Ticker amarillo animado ── */}
+      <div className="bg-[#FFD100] py-1.5 overflow-hidden">
+        <div className="flex whitespace-nowrap w-max" style={{ animation: "marquee 22s linear infinite" }}>
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span key={i} className="text-[#1B3A7A] font-extrabold text-xs uppercase tracking-widest px-8">
+              ⚽ ¡VAMOS COLOMBIA! &nbsp;·&nbsp; MUNDIAL 2026 &nbsp;·&nbsp; 🇨🇴 USA · CANADÁ · MÉXICO &nbsp;·&nbsp; 🏆 FIFA WORLD CUP 2026 &nbsp;·&nbsp; 🌎 ¡ARRIBA LA TRI! &nbsp;·&nbsp;
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+
       <div
         className={`relative w-full transition-opacity duration-300 ${animating ? "opacity-0" : "opacity-100"}`}
         style={{ aspectRatio: "1200/400", minHeight: "220px", maxHeight: "420px" }}
