@@ -74,17 +74,21 @@ export default function VideoHero() {
       <button
         onClick={toggleMute}
         aria-label={isMuted ? "Activar sonido" : "Silenciar"}
-        className="absolute bottom-8 right-6 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-white/20 transition-all duration-300"
+        className={`absolute bottom-8 right-6 z-20 flex items-center gap-2 backdrop-blur-sm text-white text-xs font-bold px-4 py-2.5 rounded-full transition-all duration-300 shadow-lg ${
+          isMuted
+            ? "bg-[#3ED9C4]/80 border border-[#3ED9C4] hover:bg-[#3ED9C4] animate-pulse"
+            : "bg-white/10 border border-white/30 hover:bg-white/20"
+        }`}
       >
         {isMuted ? (
           <>
             <VolumeX size={15} />
-            Activar sonido
+            🔇 Toca para escuchar
           </>
         ) : (
           <>
             <Volume2 size={15} />
-            Silenciar
+            🔊 Sonido activo
           </>
         )}
       </button>
