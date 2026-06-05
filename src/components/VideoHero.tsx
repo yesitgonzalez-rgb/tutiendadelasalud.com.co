@@ -8,6 +8,7 @@ export default function VideoHero() {
 
   useEffect(() => {
     if (videoRef.current) {
+      videoRef.current.muted = true; // muted via ref (no JSX attr) para que toggleMute funcione
       videoRef.current.play().catch(() => {});
     }
   }, []);
@@ -26,7 +27,6 @@ export default function VideoHero() {
         className="absolute inset-0 w-full h-full object-cover"
         src="/videos/hero-bg.mp4"
         autoPlay
-        muted
         loop
         playsInline
         style={{ filter: "brightness(0.7)" }}
