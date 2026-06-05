@@ -4,6 +4,7 @@ import VideoHero from "@/components/VideoHero";
 import ProductCard from "@/components/ProductCard";
 import VideoCarousel from "@/components/VideoCarousel";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import BannerSlider from "@/components/BannerSlider";
 import CelionCard from "@/components/CelionCard";
 import {
   Leaf,
@@ -634,8 +635,11 @@ export default function Home() {
       {/* HERO */}
       <VideoHero />
 
-      {/* ── BANNER MUNDIAL 2026 ── */}
-      <section className="relative overflow-hidden bg-[#1B3A7A]" aria-label="Promoción Mundial 2026">
+      {/* ── SLIDER PROMOCIONAL ── */}
+      <BannerSlider />
+
+      {/* ── BANNER MUNDIAL 2026 — LEGACY (oculto) ── */}
+      <section className="relative overflow-hidden bg-[#1B3A7A] hidden" aria-label="Promoción Mundial 2026">
         {/* Ticker superior */}
         <div className="bg-[#FFD100] py-1.5 overflow-hidden">
           <div className="flex animate-[marquee_18s_linear_infinite] whitespace-nowrap w-max">
