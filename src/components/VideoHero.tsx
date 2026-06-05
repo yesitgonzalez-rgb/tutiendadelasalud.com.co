@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, ChevronDown, Volume2, VolumeX } from "lucide-react";
+import { MessageCircle, ChevronDown, Volume2, Volume1 } from "lucide-react";
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -82,8 +82,8 @@ export default function VideoHero() {
       >
         {isMuted ? (
           <>
-            <VolumeX size={15} />
-            🔇 Toca para escuchar
+            <Volume1 size={15} />
+            🎵 Toca para escuchar
           </>
         ) : (
           <>
