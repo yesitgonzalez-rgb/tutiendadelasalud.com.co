@@ -1308,7 +1308,7 @@ export default function Home() {
                             src={src}
                             alt={`${item.title} ${i + 1}`}
                             fill
-                            className="object-cover"
+                            className="object-cover object-top"
                             sizes="(max-width: 640px) 50vw, 12vw"
                           />
                         </div>
@@ -1325,8 +1325,9 @@ export default function Home() {
                   ) : (
                     <div className="flex items-center justify-center h-full opacity-20">{item.icon}</div>
                   )}
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-white/90 backdrop-blur-sm text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm" style={{ color: item.accent }}>
+                  {/* Badge movido al pie para no tapar rostros */}
+                  <div className="absolute bottom-3 left-3">
+                    <span className="bg-white/95 backdrop-blur-sm text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm" style={{ color: item.accent }}>
                       {item.badge}
                     </span>
                   </div>
