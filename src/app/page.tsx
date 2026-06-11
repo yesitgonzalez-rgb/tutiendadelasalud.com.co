@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import VideoCarousel from "@/components/VideoCarousel";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BannerSlider from "@/components/BannerSlider";
+import LogoTicker from "@/components/LogoTicker";
 import CelionCard from "@/components/CelionCard";
 import {
   Leaf,
@@ -637,6 +638,9 @@ export default function Home() {
 
       {/* ── SLIDER PROMOCIONAL ── */}
       <BannerSlider />
+
+      {/* ── TICKER DE CERTIFICACIONES ── */}
+      <LogoTicker />
 
       {/* ── BANNER MUNDIAL 2026 — LEGACY (oculto) ── */}
       <section className="relative overflow-hidden bg-[#1B3A7A] hidden" aria-label="Promoción Mundial 2026">
