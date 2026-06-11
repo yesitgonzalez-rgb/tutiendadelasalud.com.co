@@ -1297,68 +1297,40 @@ export default function Home() {
             {familiaItems.map((item) => (
               <div
                 key={item.title}
-                className="bg-white rounded-3xl overflow-hidden flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100"
+                className="bg-white rounded-3xl overflow-hidden flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 group"
               >
-                <div className={`relative bg-gradient-to-br ${item.gradient} overflow-hidden ${"imgs" in item && item.imgs ? "h-52" : "h-44"}`}>
-                  {"imgs" in item && item.imgs ? (
-                    <div className={`grid h-full gap-0.5 ${(item.imgs as string[]).length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
-                      {(item.imgs as string[]).map((src: string, i: number) => (
-                        <div key={i} className="relative overflow-hidden">
-                          <Image
-                            src={src}
-                            alt={`${item.title} ${i + 1}`}
-                            fill
-                            className="object-cover object-top"
-                            sizes="(max-width: 640px) 50vw, 12vw"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ) : item.img ? (
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 640px) 100vw, 25vw"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full opacity-20">{item.icon}</div>
-                  )}
-                  {/* Badge movido al pie para no tapar rostros */}
-                  <div className="absolute bottom-3 left-3">
-                    <span className="bg-white/95 backdrop-blur-sm text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm" style={{ color: item.accent }}>
-                      {item.badge}
-                    </span>
-                  </div>
+                {/* Badge fuera de la imagen — igual que niños */}
+                <div className="px-4 pt-4">
+                  <span className="inline-flex items-center text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full bg-[#F0FAF7] text-[#1B3A7A]">
+                    {item.badge}
+                  </span>
                 </div>
+                {/* Imagen limpia sin gradiente ni overlay */}
+                <div className="relative h-64 mx-2 mt-2 flex-shrink-0">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                {/* Contenido */}
                 <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${item.accent}18` }}>
-                      <div style={{ color: item.accent }} className="scale-75">{item.icon}</div>
-                    </div>
-                    <h3 className="font-display font-bold text-[#1B3A7A] text-lg leading-tight">{item.title}</h3>
-                  </div>
-                  <p className="text-[#374151] text-xs leading-relaxed mb-4">{item.desc}</p>
-                  <ul className="space-y-2 mb-5 flex-1">
-                    {item.products.map((p) => (
-                      <li key={p.name} className="flex items-start gap-2">
-                        <span className="text-[#3ED9C4] font-bold text-xs mt-0.5 flex-shrink-0">▸</span>
-                        <div>
-                          <span className="text-[#1B3A7A] font-semibold text-xs">{p.name}</span>
-                          <span className="text-[#6B7280] text-xs"> — {p.benefit}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="font-display font-bold text-[#1B3A7A] text-base mb-2 leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#374151] text-xs leading-relaxed mb-4 flex-1">
+                    {item.desc}
+                  </p>
                   <a
                     href={`https://wa.me/573203358826?text=${encodeURIComponent(item.waMsg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full bg-[#1B3A7A] text-white py-2.5 rounded-2xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm"
+                    className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-2.5 rounded-2xl font-bold text-xs hover:bg-[#20b858] hover:scale-[1.02] transition-all duration-200 shadow-sm hover:shadow-[0_6px_18px_rgba(37,211,102,0.35)]"
                   >
                     <MessageCircle size={13} />
-                    Ver productos
+                    Consultar por WhatsApp
                   </a>
                 </div>
               </div>
