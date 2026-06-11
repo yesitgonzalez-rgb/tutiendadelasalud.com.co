@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   description:
     "Tienda de productos premium de bienestar integral en Colombia. Ganoderma, colágeno, suplementos y nutrición celular con certificaciones internacionales. Cuida tu salud física, mental e inmunológica. Envíos a todo Colombia.",
   keywords:
-    "productos naturales Colombia, tienda naturista online Colombia, tienda de la salud Colombia, ganoderma Colombia, ganoderma Bogotá, suplementos naturales Colombia, colágeno hidrolizado Colombia, colágeno Bogotá, bebidas saludables Colombia, bienestar integral, nutrición celular, productos orgánicos Colombia, NEUROcell Colombia, Colágeno Glow Colombia, StemRenu Colombia, celion Colombia, café con ganoderma Colombia, suplementos bienestar Bogotá, probióticos Colombia, productos de bienestar natural, donde comprar suplementos naturales en Colombia",
+    "productos naturales Colombia, tienda premium bienestar Colombia, tienda de la salud Colombia, ganoderma Colombia, ganoderma Bogotá, suplementos naturales Colombia, colágeno hidrolizado Colombia, colágeno Bogotá, bebidas saludables Colombia, bienestar integral, nutrición celular, productos orgánicos Colombia, NEUROcell Colombia, Colágeno Glow Colombia, StemRenu Colombia, celion Colombia, café con ganoderma Colombia, suplementos bienestar Bogotá, probióticos Colombia, productos de bienestar natural, donde comprar suplementos naturales en Colombia",
   alternates: {
     canonical: "https://tutiendadelasalud.com.co",
   },
   openGraph: {
     title: "Tu Tienda de la Salud | Productos Naturales Colombia",
     description:
-      "Tienda naturista online en Colombia. Productos naturales, ganoderma y suplementos de bienestar. Envíos a todo Colombia.",
+      "Productos premium de bienestar integral en Colombia. Ganoderma, colágeno y suplementos con certificaciones internacionales. Envíos a todo Colombia.",
     url: "https://tutiendadelasalud.com.co",
     siteName: "Tu Tienda de la Salud",
     type: "website",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tu Tienda de la Salud | Productos Naturales Colombia",
     description:
-      "Tienda naturista online en Colombia. Productos naturales, ganoderma y suplementos de bienestar. Envíos a todo Colombia.",
+      "Productos premium de bienestar integral en Colombia. Ganoderma, colágeno y suplementos con certificaciones internacionales. Envíos a todo Colombia.",
   },
   icons: {
     icon: "/images/favicon.png",
@@ -89,7 +89,7 @@ export default function RootLayout({
               url: "https://tutiendadelasalud.com.co",
               logo: "https://tutiendadelasalud.com.co/images/favicon.png",
               description:
-                "Tienda naturista online en Colombia. Productos naturales, ganoderma, colágeno y suplementos de bienestar integral. Envíos a todo Colombia.",
+                "Productos premium de bienestar integral en Colombia. Ganoderma, colágeno y suplementos con certificaciones internacionales. Envíos a todo Colombia.",
               telephone: "+573203358826",
               address: {
                 "@type": "PostalAddress",
