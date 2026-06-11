@@ -420,10 +420,10 @@ const productosEstrella = [
     badge: "Bestseller",
   },
   {
-    name: "Cream Coffee",
+    name: "Zhi Mocha",
     category: "☕ Energía Natural",
-    desc: "Café cremoso con Ganoderma Lucidum. Sabor suave, energía real. Ideal para toda la familia.",
-    img: "/images/cafe-creamcoffee-premium.png",
+    desc: "Café moca con Ganoderma Lucidum. Sabor cremoso e irresistible con el poder del Reishi. Ideal para toda la familia.",
+    img: "/images/cafe-zhimocha-poster.png",
     badge: "Natural",
   },
   // 🌿 INMUNIDAD & BIENESTAR
