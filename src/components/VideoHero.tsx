@@ -7,23 +7,31 @@ export default function VideoHero() {
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true; // muted via ref (no JSX attr) para que toggleMute funcione
-      videoRef.current.play().catch(() => {});
-    }
+    const v = videoRef.current;
+    if (!v) return;
+    v.play().catch(() => {});
   }, []);
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setIsMuted(v.muted);
+  };
+
+  // ref callback: defaultMuted permite autoplay Y dejar que toggleMute funcione
+  const setVideoRef = (el: HTMLVideoElement | null) => {
+    if (el) {
+      el.defaultMuted = true;
+      el.muted = true;
+      (videoRef as React.MutableRefObject<HTMLVideoElement | null>).current = el;
     }
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <video
-        ref={videoRef}
+        ref={setVideoRef}
         className="absolute inset-0 w-full h-full object-cover"
         src="/videos/hero-bg.mp4"
         autoPlay
