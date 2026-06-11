@@ -16,8 +16,8 @@ export default function LogoTicker() {
     <section className="bg-white border-y border-gray-100 py-4 overflow-hidden" aria-label="Certificaciones y respaldos">
 
       {/* Label */}
-      <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-3">
-        Productos respaldados por
+      <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-[#1B3A7A] mb-3">
+        Laboratorios con certificaciones de alta calidad
       </p>
 
       {/* Ticker */}
