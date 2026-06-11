@@ -38,7 +38,7 @@ export default function LogoTicker() {
                 alt={logo.alt}
                 width={logo.w}
                 height={logo.h}
-                className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="object-contain transition-all duration-300"
                 unoptimized={logo.src.endsWith(".gif")}
               />
             </div>
