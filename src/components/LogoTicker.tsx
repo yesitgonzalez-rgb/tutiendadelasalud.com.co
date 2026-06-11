@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const logos = [
+  { src: "/images/logos/cert-fda.png",    alt: "FDA Approved", w: 70,  h: 70 },
   { src: "/images/logos/cert-anim.gif",   alt: "INVIMA - Instituto Nacional de Vigilancia de Medicamentos y Alimentos", w: 160, h: 60 },
   { src: "/images/logos/cert-iqnet.png",  alt: "IQNet - Certified Management System", w: 70,  h: 70 },
   { src: "/images/logos/cert-cqc.jpg",    alt: "CQC System Certification", w: 180, h: 70 },
