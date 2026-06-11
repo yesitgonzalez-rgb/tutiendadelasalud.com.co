@@ -23,30 +23,30 @@ export default function ProductCard({
   const { addItem } = useCart();
 
   return (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.13)] hover:-translate-y-1.5 transition-all duration-300 group relative flex flex-col">
+    <div className="bg-white rounded-3xl overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.13)] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col border border-gray-100">
+
+      {/* Badge FUERA de la imagen — no tapa el producto */}
       {badge && (
-        <div
-          className={`absolute top-3 left-3 z-10 text-xs font-bold px-3 py-1 rounded-full shadow-sm ${
-            badge === "Bestseller"
-              ? "bg-amber-400 text-amber-900"
-              : badge === "Premium"
-              ? "bg-[#1B3A7A] text-white"
-              : badge === "Natural"
-              ? "bg-green-500 text-white"
-              : "bg-[#3ED9C4] text-[#1B3A7A]"
-          }`}
-        >
-          {badge}
+        <div className="px-4 pt-4">
+          <span className={`inline-flex items-center text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full ${
+            badge === "Bestseller" ? "bg-amber-100 text-amber-800"
+            : badge === "Premium"  ? "bg-[#1B3A7A]/10 text-[#1B3A7A]"
+            : badge === "Natural"  ? "bg-green-100 text-green-700"
+            : badge === "Nuevo"    ? "bg-[#3ED9C4]/20 text-[#1B3A7A]"
+            : "bg-[#F0FAF7] text-[#1B3A7A]"
+          }`}>
+            {badge}
+          </span>
         </div>
       )}
 
-      {/* Imagen */}
-      <div className="relative h-56 bg-gray-50 overflow-hidden flex-shrink-0 rounded-t-3xl">
+      {/* Imagen limpia sobre fondo blanco */}
+      <div className="relative h-64 mx-2 mt-2 flex-shrink-0">
         <Image
           src={img}
           alt={name}
           fill
-          className="object-contain p-4 group-hover:scale-108 transition-transform duration-500 ease-out"
+          className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
       </div>
