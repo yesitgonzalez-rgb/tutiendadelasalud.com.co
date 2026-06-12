@@ -3,7 +3,6 @@ import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import CartDrawer from "@/components/CartDrawer";
 import { CartProvider } from "@/context/CartContext";
 import PixelEvents from "@/components/PixelEvents";
@@ -73,7 +72,6 @@ export default function RootLayout({
           <Navbar />
           <CartDrawer />
           <main>{children}</main>
-          <WhatsAppButton />
           <PixelEvents />
         </CartProvider>
 

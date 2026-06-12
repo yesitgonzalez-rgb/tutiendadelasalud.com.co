@@ -77,7 +77,7 @@ export default function CelionCard({
         {/* Botones */}
         <div className="flex flex-col gap-2 mt-auto">
           <button
-            onClick={() =>
+            onPointerDown={() =>
               addItem({ name, category: "Nutrición Celular · Celion", img })
             }
             style={{ touchAction: "manipulation" }}

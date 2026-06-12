@@ -77,7 +77,7 @@ export default function WhatsAppWidget() {
   if (cartOpen) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-24 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3">
 
       {/* ── Popup chat ── */}
       <div

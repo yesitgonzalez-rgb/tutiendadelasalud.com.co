@@ -86,7 +86,7 @@ export default function ProductCard({
         {/* Botones */}
         <div className="flex flex-col gap-2 mt-auto">
           <button
-            onClick={() => addItem({ name, category, img })}
+            onPointerDown={() => addItem({ name, category, img })}
             style={{ touchAction: "manipulation" }}
             className="flex items-center justify-center gap-2 w-full bg-[#1B3A7A] text-white py-2.5 rounded-2xl font-semibold text-sm hover:bg-[#3ED9C4] hover:text-[#1B3A7A] hover:scale-[1.02] transition-all duration-200 shadow-sm hover:shadow-[0_6px_18px_rgba(62,217,196,0.35)]"
           >
