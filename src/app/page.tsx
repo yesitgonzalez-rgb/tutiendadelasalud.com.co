@@ -26,11 +26,11 @@ import {
   Award,
 } from "lucide-react";
 
-// ─── Helper: descuento 10% (formato COP con puntos como miles) ────────────────
-function applyDiscount(priceStr: string): string {
+// ─── Helper: incremento 10% (formato COP con puntos como miles) ───────────────
+function applyMarkup(priceStr: string): string {
   const num = parseInt(priceStr.replace(/\./g, ""), 10);
-  const discounted = Math.round(num * 0.9);
-  return discounted.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const increased = Math.round(num * 1.1);
+  return increased.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 // ─── Datos ────────────────────────────────────────────────────────────────────
@@ -1075,20 +1075,10 @@ export default function Home() {
                     {p.desc}
                   </p>
                   {p.price && (
-                    <div className="mb-3">
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <span className="bg-red-500 text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full tracking-wide">
-                          -10% DCTO
-                        </span>
-                        <span className="text-[#9CA3AF] text-xs line-through">
-                          ${p.price} COP
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-2 bg-[#F4F6F9] rounded-xl">
-                        <span className="text-[#3ED9C4] text-sm font-extrabold">✦</span>
-                        <span className="text-[#1B3A7A] font-extrabold text-sm">Desde ${applyDiscount(p.price)}</span>
-                        <span className="text-[#6B7280] text-xs">COP</span>
-                      </div>
+                    <div className="flex items-center gap-2 mb-3 px-3 py-2 bg-[#F4F6F9] rounded-xl">
+                      <span className="text-[#3ED9C4] text-sm font-extrabold">✦</span>
+                      <span className="text-[#1B3A7A] font-extrabold text-sm">Desde ${applyMarkup(p.price)}</span>
+                      <span className="text-[#6B7280] text-xs">COP</span>
                     </div>
                   )}
                   <a
