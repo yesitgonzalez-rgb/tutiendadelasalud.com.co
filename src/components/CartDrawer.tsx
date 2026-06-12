@@ -43,10 +43,10 @@ export default function CartDrawer() {
         aria-hidden="true"
       />
 
-      {/* Drawer */}
+      {/* Drawer — pointer-events-none cuando está cerrado para no bloquear toques */}
       <div
         className={`fixed right-0 top-0 h-full w-full max-w-sm bg-white z-[200] shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
         role="dialog"
         aria-modal="true"
