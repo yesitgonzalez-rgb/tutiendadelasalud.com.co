@@ -67,6 +67,7 @@ export default function CartDrawer() {
           </div>
           <button
             onClick={closeCart}
+            style={{ touchAction: "manipulation" }}
             className="p-2 text-[#5A6478] hover:text-[#1B3A7A] transition-colors rounded-full hover:bg-gray-100"
             aria-label="Cerrar carrito"
           >
@@ -87,6 +88,7 @@ export default function CartDrawer() {
               </p>
               <button
                 onClick={closeCart}
+                style={{ touchAction: "manipulation" }}
                 className="mt-6 text-[#1B3A7A] font-semibold text-sm border border-[#1B3A7A]/30 px-5 py-2 rounded-full hover:border-[#1B3A7A] transition-colors"
               >
                 Ver productos
@@ -125,7 +127,8 @@ export default function CartDrawer() {
                         onClick={() =>
                           updateQuantity(item.name, item.quantity - 1)
                         }
-                        className="w-7 h-7 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1B3A7A] hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-colors"
+                        style={{ touchAction: "manipulation" }}
+                        className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1B3A7A] hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-colors"
                         aria-label="Reducir cantidad"
                       >
                         <Minus size={12} />
@@ -137,7 +140,8 @@ export default function CartDrawer() {
                         onClick={() =>
                           updateQuantity(item.name, item.quantity + 1)
                         }
-                        className="w-7 h-7 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1B3A7A] hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-colors"
+                        style={{ touchAction: "manipulation" }}
+                        className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#1B3A7A] hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-colors"
                         aria-label="Aumentar cantidad"
                       >
                         <Plus size={12} />
@@ -148,7 +152,8 @@ export default function CartDrawer() {
                   {/* Eliminar */}
                   <button
                     onClick={() => removeItem(item.name)}
-                    className="text-gray-300 hover:text-red-400 transition-colors self-start pt-1 flex-shrink-0"
+                    style={{ touchAction: "manipulation" }}
+                    className="text-gray-300 hover:text-red-400 transition-colors self-start pt-1 flex-shrink-0 p-1"
                     aria-label={`Eliminar ${item.name}`}
                   >
                     <Trash2 size={16} />
@@ -180,7 +185,8 @@ export default function CartDrawer() {
 
             <button
               onClick={clearCart}
-              className="w-full text-[#5A6478] text-sm hover:text-red-400 transition-colors py-1.5 font-medium"
+              style={{ touchAction: "manipulation" }}
+              className="w-full text-[#5A6478] text-sm hover:text-red-400 transition-colors py-3 font-medium"
             >
               Vaciar carrito
             </button>

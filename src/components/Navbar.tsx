@@ -85,7 +85,8 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={openCart}
-              className="relative p-2 text-[#1B3A7A]"
+              style={{ touchAction: "manipulation" }}
+              className="relative p-3 text-[#1B3A7A]"
               aria-label="Abrir carrito"
             >
               <ShoppingCart size={22} />
@@ -96,7 +97,8 @@ export default function Navbar() {
               )}
             </button>
             <button
-              className="p-2 text-[#1B3A7A]"
+              style={{ touchAction: "manipulation" }}
+              className="p-3 text-[#1B3A7A]"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
             >

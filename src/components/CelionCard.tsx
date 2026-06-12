@@ -80,6 +80,7 @@ export default function CelionCard({
             onClick={() =>
               addItem({ name, category: "Nutrición Celular · Celion", img })
             }
+            style={{ touchAction: "manipulation" }}
             className="flex items-center justify-center gap-2 w-full bg-[#F26010] text-white py-2.5 rounded-xl font-bold text-sm hover:bg-[#d9530d] hover:scale-[1.02] hover:shadow-[0_6px_20px_rgba(242,96,16,0.4)] transition-all duration-200"
           >
             <ShoppingCart size={15} />
