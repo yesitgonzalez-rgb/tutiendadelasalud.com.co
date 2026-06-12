@@ -7,6 +7,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BannerSlider from "@/components/BannerSlider";
 import LogoTicker from "@/components/LogoTicker";
 import CelionCard from "@/components/CelionCard";
+import AddToCartButton from "@/components/AddToCartButton";
 import {
   Leaf,
   Zap,
@@ -1081,15 +1082,22 @@ export default function Home() {
                       <span className="text-[#6B7280] text-xs">COP</span>
                     </div>
                   )}
-                  <a
-                    href={`https://wa.me/573203358826?text=${encodeURIComponent(p.waMsg)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-2.5 rounded-2xl font-bold text-xs hover:bg-[#20b858] hover:scale-[1.02] transition-all duration-200 shadow-sm hover:shadow-[0_6px_18px_rgba(37,211,102,0.35)]"
-                  >
-                    <MessageCircle size={13} />
-                    Consultar por WhatsApp
-                  </a>
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <AddToCartButton
+                      name={p.name}
+                      category="Nutrición Infantil"
+                      img={p.img}
+                    />
+                    <a
+                      href={`https://wa.me/573203358826?text=${encodeURIComponent(p.waMsg)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-2xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] hover:bg-[#3ED9C4]/5 transition-all duration-200"
+                    >
+                      <MessageCircle size={13} />
+                      Consultar por WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -1341,15 +1349,22 @@ export default function Home() {
                   <p className="text-[#374151] text-xs leading-relaxed mb-4 flex-1">
                     {item.desc}
                   </p>
-                  <a
-                    href={`https://wa.me/573203358826?text=${encodeURIComponent(item.waMsg)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-2.5 rounded-2xl font-bold text-xs hover:bg-[#20b858] hover:scale-[1.02] transition-all duration-200 shadow-sm hover:shadow-[0_6px_18px_rgba(37,211,102,0.35)]"
-                  >
-                    <MessageCircle size={13} />
-                    Consultar por WhatsApp
-                  </a>
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <AddToCartButton
+                      name={item.title}
+                      category="Bienestar Familiar"
+                      img={item.img}
+                    />
+                    <a
+                      href={`https://wa.me/573203358826?text=${encodeURIComponent(item.waMsg)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-2xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] hover:bg-[#3ED9C4]/5 transition-all duration-200"
+                    >
+                      <MessageCircle size={13} />
+                      Consultar por WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -1400,9 +1415,12 @@ export default function Home() {
                     <span className="text-[#1B3A7A] font-extrabold text-base">$145.000</span>
                     <span className="text-[10px] text-[#94a3b8] font-medium">COP</span>
                   </div>
-                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesan los Probióticos USANA. ¿Está disponible? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm">
-                    <MessageCircle size={12} /> Pedir ahora
-                  </a>
+                  <div className="flex flex-col gap-1.5">
+                    <AddToCartButton name="USANA Probióticos" category="Suplementos · Digestivo" img="/images/adultos-usana-probiotico.png" />
+                    <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesan los Probióticos USANA. ¿Está disponible? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-all duration-200">
+                      <MessageCircle size={12} /> Consultar
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -1421,9 +1439,12 @@ export default function Home() {
                     <span className="text-[#1B3A7A] font-extrabold text-base">$135.000</span>
                     <span className="text-[10px] text-[#94a3b8] font-medium">COP</span>
                   </div>
-                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el Calcio para Adultos. ¿Está disponible? 🦴")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm">
-                    <MessageCircle size={12} /> Pedir ahora
-                  </a>
+                  <div className="flex flex-col gap-1.5">
+                    <AddToCartButton name="Calcio para Adultos" category="Suplementos · Óseo" img="/images/adultos-calcio.png" />
+                    <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el Calcio para Adultos. ¿Está disponible? 🦴")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-all duration-200">
+                      <MessageCircle size={12} /> Consultar
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -1442,9 +1463,12 @@ export default function Home() {
                     <span className="text-[#1B3A7A] font-extrabold text-base">$134.000</span>
                     <span className="text-[10px] text-[#94a3b8] font-medium">COP</span>
                   </div>
-                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el BIOMEGA Omega-3. ¿Disponibilidad? 🐟")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm">
-                    <MessageCircle size={12} /> Pedir ahora
-                  </a>
+                  <div className="flex flex-col gap-1.5">
+                    <AddToCartButton name="BIOMEGA Omega-3" category="Suplementos · Cardiovascular" img="/images/adultos-biomega.png" />
+                    <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el BIOMEGA Omega-3. ¿Disponibilidad? 🐟")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-all duration-200">
+                      <MessageCircle size={12} /> Consultar
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -1463,9 +1487,12 @@ export default function Home() {
                     <span className="text-[#1B3A7A] font-extrabold text-base">$135.000</span>
                     <span className="text-[10px] text-[#94a3b8] font-medium">COP</span>
                   </div>
-                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el E-Omega 3 de Atomy. ¿Disponibilidad? 🐟")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm">
-                    <MessageCircle size={12} /> Pedir ahora
-                  </a>
+                  <div className="flex flex-col gap-1.5">
+                    <AddToCartButton name="E-Omega 3 Atomy" category="Suplementos · Cardiovascular" img="/images/adultos-eomega.png" />
+                    <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el E-Omega 3 de Atomy. ¿Disponibilidad? 🐟")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-all duration-200">
+                      <MessageCircle size={12} /> Consultar
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -1484,9 +1511,12 @@ export default function Home() {
                     <span className="text-[#1B3A7A] font-extrabold text-base">$125.000</span>
                     <span className="text-[10px] text-[#94a3b8] font-medium">caja x 21</span>
                   </div>
-                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el MULTYDRINK (caja x 21 sobres). ¿Disponibilidad? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#3ED9C4] text-[#1B3A7A] py-2.5 rounded-xl font-bold text-xs hover:bg-[#1B3A7A] hover:text-white transition-all duration-200 shadow-sm">
-                    <MessageCircle size={12} /> Pedir ahora
-                  </a>
+                  <div className="flex flex-col gap-1.5">
+                    <AddToCartButton name="MULTYDRINK" category="Suplementos · Antioxidante" img="/images/adultos-multydrink.png" />
+                    <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesa el MULTYDRINK (caja x 21 sobres). ¿Disponibilidad? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-all duration-200">
+                      <MessageCircle size={12} /> Consultar
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -1505,9 +1535,12 @@ export default function Home() {
                     <span className="text-[#1B3A7A] font-extrabold text-base">$100.000</span>
                     <span className="text-[10px] text-[#94a3b8] font-medium">caja x 30</span>
                   </div>
-                  <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesan los Probióticos (caja azul x30 sobres). ¿Está disponible? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full bg-[#1B3A7A] text-white py-2.5 rounded-xl font-bold text-xs hover:bg-[#3ED9C4] hover:text-[#1B3A7A] transition-all duration-200 shadow-sm">
-                    <MessageCircle size={12} /> Pedir ahora
-                  </a>
+                  <div className="flex flex-col gap-1.5">
+                    <AddToCartButton name="Probióticos" category="Suplementos · Digestivo" img="/images/adultos-probioticos.png" />
+                    <a href={`https://wa.me/573203358826?text=${encodeURIComponent("Hola Yesit! Me interesan los Probióticos (caja azul x30 sobres). ¿Está disponible? 🌿")}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 w-full border border-[#1B3A7A]/20 text-[#1B3A7A] py-2 rounded-xl font-medium text-xs hover:border-[#3ED9C4] hover:text-[#3ED9C4] transition-all duration-200">
+                      <MessageCircle size={12} /> Consultar
+                    </a>
+                  </div>
                 </div>
               </div>
 
