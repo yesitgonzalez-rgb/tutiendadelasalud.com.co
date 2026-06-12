@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useCart } from "@/context/CartContext";
 
 const WA_URL = "https://wa.me/573203358826";
 
@@ -43,6 +44,7 @@ export default function WhatsAppWidget() {
   const [typing, setTyping] = useState(false);
   const [showReply, setShowReply] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const { isOpen: cartOpen } = useCart();
 
   useEffect(() => {
     if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -70,6 +72,9 @@ export default function WhatsAppWidget() {
   const waTarget = selected
     ? `${WA_URL}?text=${encodeURIComponent(FLOWS[selected].waMsg)}`
     : `${WA_URL}?text=${encodeURIComponent("Hola Yesit! Vi tu tienda de salud y me gustaría recibir más información. 🌿")}`;
+
+  // Ocultar widget cuando el carrito está abierto para no tapar sus botones
+  if (cartOpen) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
