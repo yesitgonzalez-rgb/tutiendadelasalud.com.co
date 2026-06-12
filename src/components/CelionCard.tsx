@@ -3,6 +3,12 @@ import Image from "next/image";
 import { ShoppingCart, MessageCircle } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
+function applyDiscount(priceStr: string): string {
+  const num = parseInt(priceStr.replace(/\./g, ""), 10);
+  const discounted = Math.round(num * 0.9);
+  return discounted.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 interface CelionCardProps {
   name: string;
   subtitle: string;
@@ -59,12 +65,22 @@ export default function CelionCard({
           ))}
         </ul>
 
-        {/* Precio */}
+        {/* Precio con 10% descuento */}
         {price && (
-          <div className="flex items-center gap-2 mb-3 px-3 py-2 bg-white/5 border border-white/10 rounded-xl">
-            <span className="text-[#F26010] text-sm font-extrabold">✦</span>
-            <span className="text-white font-extrabold text-sm">Desde ${price}</span>
-            <span className="text-white/40 text-xs">COP</span>
+          <div className="mb-3">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="bg-[#F26010] text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full tracking-wide">
+                -10% DCTO
+              </span>
+              <span className="text-white/30 text-xs line-through">
+                ${price} COP
+              </span>
+            </div>
+            <div className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-xl">
+              <span className="text-[#F26010] text-sm font-extrabold">✦</span>
+              <span className="text-white font-extrabold text-sm">Desde ${applyDiscount(price)}</span>
+              <span className="text-white/40 text-xs">COP</span>
+            </div>
           </div>
         )}
 
