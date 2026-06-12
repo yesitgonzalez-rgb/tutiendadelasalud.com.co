@@ -77,11 +77,11 @@ export default function WhatsAppWidget() {
   if (cartOpen) return null;
 
   return (
-    <div className="fixed bottom-24 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-24 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
 
       {/* ── Popup chat ── */}
       <div
-        className={`w-80 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-300 origin-bottom-right ${
+        className={`w-80 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-300 origin-bottom-right pointer-events-auto ${
           open
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-90 translate-y-4 pointer-events-none"
@@ -206,8 +206,9 @@ export default function WhatsAppWidget() {
       {/* ── Botón flotante ── */}
       <button
         onClick={() => setOpen(!open)}
+        style={{ touchAction: "manipulation" }}
         aria-label={open ? "Cerrar chat" : "Abrir chat con Yesit"}
-        className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] text-white shadow-[0_8px_32px_rgba(37,211,102,0.5)] hover:shadow-[0_12px_48px_rgba(37,211,102,0.7)] hover:scale-110 transition-all duration-300"
+        className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] text-white shadow-[0_8px_32px_rgba(37,211,102,0.5)] hover:shadow-[0_12px_48px_rgba(37,211,102,0.7)] hover:scale-110 transition-all duration-300 pointer-events-auto"
       >
         {!open && (
           <>
