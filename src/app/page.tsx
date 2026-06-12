@@ -127,11 +127,11 @@ const bebidasLiquidas = [
     price: "129.500",
   },
   {
-    name: "Morinzyme",
-    category: "🌿 Digestión & Bienestar",
-    desc: "Bebida fermentada de Noni con enzimas naturales. Mejora tu digestión, el metabolismo y la absorción de nutrientes. 285 ml.",
-    img: "/images/bebida-morinzyme.png",
-    badge: "Natural",
+    name: "Multydrink",
+    category: "⚡ Nutrición & Energía",
+    desc: "Bebida antioxidante premium. Nutrición inteligente para tu cuerpo, energía natural todos los días. Vitalidad y bienestar integral.",
+    img: "/images/bebida-multydrink.png",
+    badge: "Premium",
     price: "112.000",
   },
   {
@@ -151,6 +151,7 @@ const cuidadoPersonal = [
     desc: "Gel de baño con extracto de Ganoderma. Limpia profundamente, descongestiona y equilibra el pH corporal. 250 ml.",
     img: "/images/dermocosmetica-ganozhi-gel-bano.png",
     badge: "Natural",
+    price: "45.000",
   },
   {
     name: "Ganozhi Shampoo",
@@ -158,6 +159,7 @@ const cuidadoPersonal = [
     desc: "Shampoo con Ganoderma y Vitamina B5. Limpia, nutre desde la raíz hasta las puntas y fortalece con queratina hidrolizada. 250 ml.",
     img: "/images/dermocosmetica-ganozhi-shampoo.png",
     badge: "Natural",
+    price: "48.000",
   },
   {
     name: "Smilife Shampoo Keratina & Turmalina",
@@ -165,6 +167,7 @@ const cuidadoPersonal = [
     desc: "Shampoo con keratina hidrolizada y turmalina natural. Limpia, purifica y transforma la suavidad de tu cabello. 265 ml.",
     img: "/images/dermocosmetica-smilife-shampoo-keratina.png",
     badge: "Premium",
+    price: "58.000",
   },
   {
     name: "Smilife Gel de Baño Turmalina",
@@ -172,6 +175,7 @@ const cuidadoPersonal = [
     desc: "Gel de ducha con turmalina natural. Elimina impurezas, hidrata y conecta con tu energía. Piel linda, tersa y fresca. 265 ml.",
     img: "/images/dermocosmetica-smilife-gel-turmalina.png",
     badge: "Premium",
+    price: "52.000",
   },
 ];
 
@@ -366,6 +370,7 @@ const celionProducts = [
       "Reduce la fatiga y el estrés mental",
       "Mejora el biorritmo y el estado de ánimo",
     ],
+    price: "270.000",
   },
   // ── GRUPO B: Bienestar Integral & Detox ───────────
   {
@@ -418,6 +423,7 @@ const productosEstrella = [
     desc: "Café negro con extracto de Ganoderma lucidum. El ritual de cada mañana con un propósito real.",
     img: "/images/cafe-lingzhi.png",
     badge: "Bestseller",
+    price: "115.000",
   },
   {
     name: "Zhi Mocha",
@@ -425,6 +431,7 @@ const productosEstrella = [
     desc: "Café moca con Ganoderma Lucidum. Sabor cremoso e irresistible con el poder del Reishi. Ideal para toda la familia.",
     img: "/images/cafe-zhimocha-poster.png",
     badge: "Natural",
+    price: "113.500",
   },
   // 🌿 INMUNIDAD & BIENESTAR
   {
@@ -433,6 +440,7 @@ const productosEstrella = [
     desc: "Reishlgano (RG) + Ganocelium (GL) + Spirulina. El trío que fortalece tu sistema inmune y tu vitalidad celular.",
     img: "/images/ganoterapia-banner.png",
     badge: "Premium",
+    price: "299.000",
   },
   // 🌟 BELLEZA & PIEL
   {
@@ -441,6 +449,7 @@ const productosEstrella = [
     desc: "Tu piel no necesita filtros, necesita ciencia. Colágeno Glow de Celion: luminosidad, firmeza y juventud real.",
     img: "/images/celion-colageno-glow.png",
     badge: "Nuevo",
+    price: "280.000",
   },
   // 🌱 RENOVACIÓN CELULAR
   {
@@ -449,6 +458,7 @@ const productosEstrella = [
     desc: "Rejuvenecer y renovar desde adentro. Bioactivos supercargados que apoyan la señalización celular saludable.",
     img: "/images/stemrenu-poster.png",
     badge: "Premium",
+    price: "420.000",
   },
   // 🧠 COGNITIVO & CELULAR
   {
@@ -457,6 +467,7 @@ const productosEstrella = [
     desc: "Potencia tu cerebro con claridad mental, concentración y memoria. Fórmula avanzada Celion.",
     img: "/images/celion-neurocell-nuevo.png",
     badge: "Premium",
+    price: "270.000",
   },
 ];
 
